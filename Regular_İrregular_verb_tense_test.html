@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zafer's Verb Tense Test — Simple Present &amp; Simple Past</title>
+<style>
+  :root{
+    --ink:#22303a;
+    --paper:#fbf9f4;
+    --card:#ffffff;
+    --regular:#2f6f5e;
+    --irregular:#a3542a;
+    --line:#dcd6c8;
+    --accent:#3d6b8a;
+    --correct:#2f6f5e;
+    --wrong:#b5442e;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Georgia','Iowan Old Style',serif;
+    background:var(--paper);
+    color:var(--ink);
+    padding:32px 16px 80px;
+  }
+  .wrap{max-width:820px;margin:0 auto;}
+  header{text-align:center;margin-bottom:28px;}
+  header .eyebrow{
+    font-family:'Trebuchet MS',sans-serif;
+    letter-spacing:2px;text-transform:uppercase;
+    font-size:12px;color:var(--accent);font-weight:bold;
+  }
+  h1{font-size:30px;margin:8px 0 4px;}
+  header p{font-family:'Trebuchet MS',sans-serif;color:#5a6b74;font-size:14px;margin:0;}
+
+  .tabs{
+    display:flex;gap:8px;margin:28px 0 20px;
+    font-family:'Trebuchet MS',sans-serif;
+  }
+  .tab{
+    flex:1;text-align:center;padding:12px;
+    border-radius:8px 8px 0 0;
+    cursor:pointer;font-weight:bold;font-size:14px;
+    background:#efe9db;color:#7a7263;
+    border:1px solid var(--line);border-bottom:none;
+  }
+  .tab.active{background:var(--card);color:var(--accent);}
+  .panel{display:none;}
+  .panel.active{display:block;}
+
+  .instructions{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:0 0 10px 10px;padding:18px 22px;margin-bottom:26px;
+    font-family:'Trebuchet MS',sans-serif;font-size:14px;line-height:1.6;
+  }
+  .instructions strong{color:var(--accent);}
+
+  .q{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:16px 20px;margin-bottom:12px;
+    font-size:17px;line-height:1.7;
+  }
+  .q .num{
+    font-family:'Trebuchet MS',sans-serif;font-size:12px;
+    color:var(--accent);font-weight:bold;margin-right:6px;
+  }
+  .verb-hint{
+    font-family:'Trebuchet MS',sans-serif;font-size:13px;
+    color:#8a8271;font-style:italic;
+  }
+  input.gap{
+    border:none;border-bottom:2px solid var(--accent);
+    background:transparent;font-family:Georgia,serif;
+    font-size:17px;width:130px;text-align:center;
+    padding:2px 4px;color:var(--ink);
+  }
+  input.gap:focus{outline:none;border-bottom-color:var(--irregular);}
+  input.gap.correct{border-bottom-color:var(--correct);background:#eaf4ef;}
+  input.gap.wrong{border-bottom-color:var(--wrong);background:#fbe9e5;}
+
+  .check-btn, .reset-btn{
+    font-family:'Trebuchet MS',sans-serif;
+    font-weight:bold;font-size:15px;
+    padding:12px 26px;border-radius:8px;border:none;
+    cursor:pointer;margin-top:20px;margin-right:10px;
+  }
+  .check-btn{background:var(--accent);color:white;}
+  .reset-btn{background:transparent;color:var(--accent);border:2px solid var(--accent);}
+  #score-box{
+    font-family:'Trebuchet MS',sans-serif;font-weight:bold;
+    font-size:16px;margin-top:18px;padding:14px 18px;
+    border-radius:8px;display:none;
+  }
+  #score-box.show{display:block;}
+
+  .dialogue-block{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:10px;padding:20px 24px;margin-bottom:16px;
+  }
+  .dialogue-block h3{
+    font-family:'Trebuchet MS',sans-serif;font-size:13px;
+    text-transform:uppercase;letter-spacing:1px;color:var(--accent);
+    margin:0 0 12px;
+  }
+  .line{margin-bottom:10px;font-size:16.5px;line-height:1.6;}
+  .line .speaker{
+    font-family:'Trebuchet MS',sans-serif;font-weight:bold;
+    font-size:12px;text-transform:uppercase;color:#8a8271;
+    display:block;margin-bottom:2px;
+  }
+  .answer-space{
+    display:inline-block;border-bottom:1px dashed var(--line);
+    min-width:220px;margin-left:6px;
+  }
+  .note{
+    margin-top:26px;font-family:'Trebuchet MS',sans-serif;
+    font-size:13px;color:#6f6a5c;text-align:center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Verb Tense Test</div>
+    <h1>Simple Present &amp; Simple Past</h1>
+    <p>Zafer Ozkan · Part 1: Written &nbsp;|&nbsp; Part 2: Speaking</p>
+  </header>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="written">Part 1 — Written</div>
+    <div class="tab" data-tab="speaking">Part 2 — Speaking</div>
+  </div>
+
+  <!-- ============ WRITTEN PART ============ -->
+  <div class="panel active" id="panel-written">
+    <div class="instructions">
+      <strong>Instructions:</strong> Read each sentence carefully. Look for time words like <em>every day, usually, always</em> (Simple Present) or <em>yesterday, last week, last night, two years ago</em> (Simple Past). Write the correct form of the verb in brackets in the gap. There are 100 questions, 1 point each — 100 points total.
+    </div>
+
+    <div id="questions"></div>
+
+    <button class="check-btn" onclick="checkAnswers()">Check My Answers</button>
+    <button class="reset-btn" onclick="resetTest()">Reset</button>
+    <div id="score-box"></div>
+  </div>
+
+  <!-- ============ SPEAKING PART ============ -->
+  <div class="panel" id="panel-speaking">
+    <div class="instructions">
+      <strong>Instructions:</strong> Read each question out loud, then answer it in a full sentence using the correct tense. Your teacher will listen and help you if you make a mistake.
+    </div>
+
+    <div class="dialogue-block">
+      <h3>Warm-up — About your routine (Simple Present)</h3>
+      <div class="line"><span class="speaker">Teacher asks</span>1. What time do you usually wake up?<span class="answer-space"></span></div>
+      <div class="line"><span class="speaker">Teacher asks</span>2. What do you eat for breakfast every morning?<span class="answer-space"></span></div>
+      <div class="line"><span class="speaker">Teacher asks</span>3. How do you go to work or school every day?<span class="answer-space"></span></div>
+      <div class="line"><span class="speaker">Teacher asks</span>4. Do you speak English at home?<span class="answer-space"></span></div>
+      <div class="line"><span class="speaker">Teacher asks</span>5. What do you do on the weekend?<span class="answer-space"></span></div>
+    </div>
+
+    <div class="dialogue-block">
+      <h3>Yesterday — Talking about the past (Simple Past)</h3>
+      <div class="line"><span class="speaker">Teacher asks</span>6. What time did you wake up yesterday?<span class="answer-space"></span></div>
+      <div class="line"><span class="speaker">Teacher asks</span>7. What did you eat for breakfast yesterday?<span class="answer-space"></span></div>
+      <div class="line"><span class="speaker">Teacher asks</span>8. Did you go to work or school yesterday?<span class="answer-space"></span></div>
+      <div class="line"><span class="speaker">Teacher asks</span>9. Who did you talk to yesterday?<span class="answer-space"></span></div>
+      <div class="line"><span class="speaker">Teacher asks</span>10. What did you do last weekend?<span class="answer-space"></span></div>
+    </div>
+
+    <div class="dialogue-block">
+      <h3>Mixed round — Zafer chooses the tense</h3>
+      <div class="line"><span class="speaker">Teacher asks</span>11. Tell me one thing you do every day, and one thing you did yesterday, but not today.<span class="answer-space"></span></div>
+      <div class="line"><span class="speaker">Teacher asks</span>12. What is something you always do, but didn't do last week?<span class="answer-space"></span></div>
+    </div>
+
+    <p class="note">Speaking is not scored automatically — your teacher listens and gives feedback live.</p>
+  </div>
+</div>
+
+<script>
+// ===== Tabs =====
+document.querySelectorAll('.tab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-'+tab.dataset.tab).classList.add('active');
+  });
+});
+
+// ===== Written test data =====
+// Each question: text before gap, verb shown in brackets, text after gap, id
+const QUESTIONS = [
+  ["My brother", "(work)", "in a bank every day."],
+  ["Yesterday, my brother", "(work)", "until 8pm."],
+  ["We usually", "(play)", "football on Saturdays."],
+  ["Last Saturday, we", "(play)", "basketball instead."],
+  ["She", "(watch)", "TV every night."],
+  ["Last night, she", "(watch)", "a movie."],
+  ["He", "(walk)", "to school every morning."],
+  ["This morning, he", "(walk)", "very fast because he was late."],
+  ["They", "(talk)", "on the phone every day."],
+  ["Yesterday, they", "(talk)", "for two hours."],
+  ["I always", "(listen)", "to music before I sleep."],
+  ["Last night, I", "(listen)", "to a new song."],
+  ["My mother", "(clean)", "the house every weekend."],
+  ["Last weekend, she", "(clean)", "the whole apartment."],
+  ["My father", "(cook)", "dinner every evening."],
+  ["Last night, he", "(cook)", "fish for dinner."],
+  ["I", "(study)", "English every day."],
+  ["Last week, I", "(study)", "for five hours every day."],
+  ["We", "(visit)", "our grandparents every month."],
+  ["Last month, we", "(visit)", "them twice."],
+  ["They", "(travel)", "to a new city every summer."],
+  ["Last summer, they", "(travel)", "to Izmir."],
+  ["The bus", "(arrive)", "at 8 every morning."],
+  ["Yesterday, the bus", "(arrive)", "late."],
+  ["I", "(finish)", "work at 5 every day."],
+  ["Yesterday, I", "(finish)", "work at 6."],
+  ["Class", "(start)", "at 9 every day."],
+  ["Yesterday, class", "(start)", "late."],
+  ["She", "(wash)", "the dishes every night."],
+  ["Last night, she", "(wash)", "the dishes twice."],
+  ["He", "(help)", "his mother every weekend."],
+  ["Last weekend, he", "(help)", "his mother in the kitchen."],
+  ["I", "(live)", "in Balikesir now."],
+  ["Two years ago, I", "(live)", "in Istanbul."],
+  ["We", "(love)", "this song."],
+  ["We", "(love)", "that movie last year."],
+  ["She", "(like)", "coffee every morning."],
+  ["She", "(like)", "the coffee yesterday."],
+  ["I", "(want)", "tea every morning."],
+  ["Yesterday, I", "(want)", "coffee instead."],
+  ["We usually", "(stay)", "at home on Sundays."],
+  ["Last Sunday, we", "(stay)", "at my aunt's house."],
+  ["He", "(wait)", "for the bus every day."],
+  ["Yesterday, he", "(wait)", "for 20 minutes."],
+  ["I always", "(ask)", "my teacher questions."],
+  ["Yesterday, I", "(ask)", "my teacher a question."],
+  ["She", "(open)", "the shop every morning."],
+  ["Yesterday, she", "(open)", "the shop late."],
+  ["The shop", "(close)", "at 9 every night."],
+  ["Last night, the shop", "(close)", "early."],
+  ["He usually", "(go)", "to work by bus."],
+  ["Yesterday, he", "(go)", "to work by car."],
+  ["She", "(eat)", "breakfast every morning."],
+  ["This morning, she", "(eat)", "eggs."],
+  ["I", "(drink)", "tea every morning."],
+  ["Yesterday, I", "(drink)", "coffee instead."],
+  ["I", "(see)", "my best friend every weekend."],
+  ["Last weekend, I", "(see)", "her at the cinema."],
+  ["We always", "(have)", "dinner at 7pm."],
+  ["Yesterday, we", "(have)", "dinner late, at 9pm."],
+  ["I", "(do)", "my homework every evening."],
+  ["Last night, I", "(do)", "my homework quickly."],
+  ["She", "(make)", "coffee every morning."],
+  ["Yesterday, she", "(make)", "tea instead."],
+  ["He", "(take)", "the bus every day."],
+  ["Yesterday, he", "(take)", "a taxi instead."],
+  ["I", "(give)", "my mother a call every day."],
+  ["Yesterday, I", "(give)", "her a gift."],
+  ["We", "(get)", "up at 7 every morning."],
+  ["Yesterday, we", "(get)", "up at 6."],
+  ["She", "(come)", "home late every day."],
+  ["Yesterday, she", "(come)", "home even later."],
+  ["He", "(write)", "an email every day for his job."],
+  ["Last Monday, he", "(write)", "three emails."],
+  ["He", "(read)", "the news every morning."],
+  ["Yesterday, he", "(read)", "the news online."],
+  ["They", "(buy)", "bread every day."],
+  ["Yesterday, they", "(buy)", "bread and milk."],
+  ["I usually", "(sleep)", "for eight hours."],
+  ["Last night, I only", "(sleep)", "for five hours."],
+  ["She", "(speak)", "English very well."],
+  ["Two years ago, she", "(speak)", "only a little English."],
+  ["He", "(drive)", "to work every day."],
+  ["Yesterday, he", "(drive)", "to the mountains."],
+  ["They", "(meet)", "every Friday for coffee."],
+  ["Last Friday, they", "(meet)", "at a new cafe."],
+  ["I", "(know)", "the answer every time."],
+  ["Yesterday, I", "(know)", "the answer immediately."],
+  ["I", "(think)", "about my family every day."],
+  ["Yesterday, I", "(think)", "about my old friends."],
+  ["He", "(run)", "in the park every morning."],
+  ["Yesterday, he", "(run)", "five kilometers."],
+  ["She", "(sit)", "near the window every day."],
+  ["Yesterday, she", "(sit)", "near the door."],
+  ["We", "(stand)", "in line every morning."],
+  ["Yesterday, we", "(stand)", "in line for an hour."],
+  ["He", "(tell)", "the truth every time."],
+  ["Yesterday, he", "(tell)", "his mother the truth."],
+  ["I", "(feel)", "happy every weekend."],
+  ["Yesterday, I", "(feel)", "very tired."]
+];
+
+const KEYS = {
+  q0:"works", q1:"worked", q2:"play", q3:"played",
+  q4:"watches", q5:"watched", q6:"walks", q7:"walked",
+  q8:"talk", q9:"talked", q10:"listen", q11:"listened",
+  q12:"cleans", q13:"cleaned", q14:"cooks", q15:"cooked",
+  q16:"study", q17:"studied", q18:"visit", q19:"visited",
+  q20:"travel", q21:"traveled", q22:"arrives", q23:"arrived",
+  q24:"finish", q25:"finished", q26:"starts", q27:"started",
+  q28:"washes", q29:"washed", q30:"helps", q31:"helped",
+  q32:"live", q33:"lived", q34:"love", q35:"loved",
+  q36:"likes", q37:"liked", q38:"want", q39:"wanted",
+  q40:"stay", q41:"stayed", q42:"waits", q43:"waited",
+  q44:"ask", q45:"asked", q46:"opens", q47:"opened",
+  q48:"closes", q49:"closed", q50:"goes", q51:"went",
+  q52:"eats", q53:"ate", q54:"drink", q55:"drank",
+  q56:"see", q57:"saw", q58:"have", q59:"had",
+  q60:"do", q61:"did", q62:"makes", q63:"made",
+  q64:"takes", q65:"took", q66:"give", q67:"gave",
+  q68:"get", q69:"got", q70:"comes", q71:"came",
+  q72:"writes", q73:"wrote", q74:"reads", q75:"read",
+  q76:"buy", q77:"bought", q78:"sleep", q79:"slept",
+  q80:"speaks", q81:"spoke", q82:"drives", q83:"drove",
+  q84:"meet", q85:"met", q86:"know", q87:"knew",
+  q88:"think", q89:"thought", q90:"runs", q91:"ran",
+  q92:"sits", q93:"sat", q94:"stand", q95:"stood",
+  q96:"tells", q97:"told", q98:"feel", q99:"felt"
+};
+
+const container = document.getElementById('questions');
+QUESTIONS.forEach((q, i)=>{
+  const div = document.createElement('div');
+  div.className = 'q';
+  div.innerHTML = `<span class="num">${i+1}.</span> ${q[0]} <input type="text" class="gap" id="q${i}" autocomplete="off"> <span class="verb-hint">${q[1]}</span> ${q[2]}`;
+  container.appendChild(div);
+});
+
+function checkAnswers(){
+  let correct = 0;
+  const total = QUESTIONS.length;
+  QUESTIONS.forEach((q,i)=>{
+    const input = document.getElementById('q'+i);
+    const val = input.value.trim().toLowerCase();
+    const key = KEYS['q'+i].toLowerCase();
+    input.classList.remove('correct','wrong');
+    if(val === key){
+      input.classList.add('correct');
+      correct++;
+    } else if(val.length > 0){
+      input.classList.add('wrong');
+    }
+  });
+  const box = document.getElementById('score-box');
+  box.classList.add('show');
+  const pct = Math.round((correct/total)*100);
+  box.style.background = pct >= 70 ? '#e4f0ec' : '#fbe9e5';
+  box.style.color = pct >= 70 ? 'var(--correct)' : 'var(--wrong)';
+  box.textContent = `Score: ${correct} / ${total} (${pct}%)`;
+}
+
+function resetTest(){
+  QUESTIONS.forEach((q,i)=>{
+    const input = document.getElementById('q'+i);
+    input.value = '';
+    input.classList.remove('correct','wrong');
+  });
+  document.getElementById('score-box').classList.remove('show');
+}
+</script>
+</body>
+</html>
