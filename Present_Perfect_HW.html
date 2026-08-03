@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Present Perfect — Zafer — Homework (60 min)</title>
+<style>
+  :root{
+    --navy:#1a2744; --navy-light:#2c3e63;
+    --gold:#c9a24b; --gold-light:#e8d5a3;
+    --cream:#faf6ec; --cream-dark:#f0e8d4;
+    --text:#26314f; --green:#3d7a5c;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:var(--cream);color:var(--text);padding:24px 24px 110px;}
+  .wrap{max-width:1000px;margin:0 auto;}
+  header{background:var(--navy);color:var(--cream);padding:26px 30px;border-radius:12px;margin-bottom:20px;border-bottom:4px solid var(--gold);}
+  header h1{margin:0 0 4px 0;font-size:1.5em;}
+  header p{margin:0;color:var(--gold-light);font-size:0.92em;}
+  header .tr{color:var(--gold-light);opacity:0.85;font-size:0.85em;display:block;margin-top:4px;font-style:italic;}
+
+  .accordion{background:#fff;border-radius:10px;margin-bottom:18px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+  .acc-head{background:var(--navy-light);color:var(--cream);padding:14px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;}
+  .acc-head:hover{background:var(--navy);}
+  .acc-body{padding:0 20px;max-height:0;overflow:hidden;transition:max-height 0.3s ease, padding 0.3s ease;}
+  .acc-body.open{padding:18px 20px;max-height:2000px;}
+  .arrow{transition:transform 0.3s ease;}
+  .arrow.open{transform:rotate(180deg);}
+  .rule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:10px 0;}
+  .rule-card{background:var(--cream);border-left:4px solid var(--gold);border-radius:6px;padding:12px 14px;}
+  .rule-card .word{color:var(--navy);font-weight:700;display:block;}
+  .rule-card .desc{font-size:0.88em;margin:4px 0;}
+  .rule-card .tr{font-style:italic;color:var(--navy-light);font-size:0.85em;display:block;}
+
+  .section{background:#fff;border-radius:10px;padding:20px 22px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,0.06);border-left:5px solid var(--gold);}
+  .section h2{margin:0 0 4px 0;color:var(--navy);font-size:1.1em;}
+  .section .time{display:inline-block;background:var(--gold-light);color:var(--navy);font-size:0.78em;font-weight:700;padding:2px 10px;border-radius:10px;margin-bottom:8px;}
+  .section .tr-note{color:var(--navy-light);font-style:italic;font-size:0.86em;margin-bottom:14px;}
+
+  .item{margin:12px 0;padding-bottom:12px;border-bottom:1px solid var(--cream-dark);}
+  .item .num{font-weight:700;color:var(--gold);margin-right:6px;}
+  input[type=text]{border:none;border-bottom:2px solid var(--gold);background:transparent;font-family:inherit;font-size:1em;padding:2px 6px;width:150px;color:var(--navy);}
+  input[type=text]:focus{outline:none;border-bottom-color:var(--navy);}
+  select{border:1px solid var(--gold);border-radius:5px;padding:4px 8px;font-family:inherit;background:#fff;color:var(--navy);}
+
+  .mc-options{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;}
+  .mc-option{border:1px solid var(--gold);border-radius:20px;padding:5px 14px;cursor:pointer;font-size:0.9em;background:#fff;}
+  .mc-option.selected{background:var(--navy);color:var(--gold-light);border-color:var(--navy);}
+
+  .wordbank{background:var(--cream);border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:0.92em;}
+  .wordbank b{color:var(--navy);}
+
+  textarea{width:100%;min-height:90px;border:1px solid var(--gold);border-radius:6px;padding:10px;font-family:inherit;font-size:0.95em;resize:vertical;}
+
+  .error-sentence{font-style:italic;background:var(--cream);padding:8px 12px;border-radius:6px;margin-bottom:6px;}
+
+  #savebar{
+    position:fixed;bottom:0;left:0;right:0;
+    background:var(--navy);color:var(--cream);
+    padding:14px 24px;display:flex;justify-content:center;gap:14px;
+    box-shadow:0 -3px 10px rgba(0,0,0,0.2);z-index:998;
+  }
+  #savebar button{
+    background:var(--gold);color:var(--navy);border:none;border-radius:20px;
+    padding:9px 22px;font-weight:700;cursor:pointer;font-size:0.9em;
+  }
+  #savebar button.secondary{background:transparent;color:var(--gold-light);border:1px solid var(--gold-light);}
+  #savebar span{align-self:center;font-size:0.85em;color:var(--gold-light);}
+
+  #teacherNotesBtn{
+    position:fixed;bottom:70px;right:20px;
+    background:var(--navy);color:var(--gold-light);
+    border:2px solid var(--gold);border-radius:30px;
+    padding:8px 16px;font-size:0.85em;cursor:pointer;
+    box-shadow:0 3px 10px rgba(0,0,0,0.25);z-index:999;
+  }
+  .teacher-notes{display:none;background:#fff3d6;border:2px dashed var(--gold);border-radius:10px;padding:16px 20px;margin:10px 0;font-size:0.9em;}
+  .teacher-notes.visible{display:block;}
+  .teacher-notes b{color:#8a5a00;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Present Perfect — Homework</h1>
+    <p>for · since · already · yet · just — 60 minutes</p>
+    <span class="tr">for · since · already · yet · just — 60 dakika</span>
+  </header>
+
+  <div class="accordion">
+    <div class="acc-head" onclick="toggleAcc(this)">
+      <span>📖 Grammar Reference / Gramer Özeti (click to open)</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="acc-body">
+      <p><b>Structure / Yapı:</b> S + have/has + V3</p>
+      <div class="rule-grid">
+        <div class="rule-card"><span class="word">FOR</span><span class="desc">a period of time (duration)</span><span class="tr">bir süre boyunca</span></div>
+        <div class="rule-card"><span class="word">SINCE</span><span class="desc">a starting point in time</span><span class="tr">bir başlangıç noktası</span></div>
+        <div class="rule-card"><span class="word">ALREADY</span><span class="desc">sooner than expected, mid-sentence</span><span class="tr">beklenenden önce, ortada</span></div>
+        <div class="rule-card"><span class="word">YET</span><span class="desc">negatives &amp; questions, end of sentence</span><span class="tr">olumsuz/soru, sonda</span></div>
+        <div class="rule-card"><span class="word">JUST</span><span class="desc">very recently, mid-sentence</span><span class="tr">az önce, ortada</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1: Multiple Choice -->
+  <div class="section">
+    <h2>1. Multiple Choice — Choose the correct word</h2>
+    <span class="time">10 min</span>
+    <p class="tr-note">Doğru kelimeyi seç.</p>
+
+    <div class="item"><span class="num">1.</span> I have worked here ___ five years.
+      <div class="mc-options" data-q="1">
+        <div class="mc-option" onclick="selectMC(this)">for</div>
+        <div class="mc-option" onclick="selectMC(this)">since</div>
+        <div class="mc-option" onclick="selectMC(this)">yet</div>
+      </div>
+    </div>
+    <div class="item"><span class="num">2.</span> Have you finished the report ___?
+      <div class="mc-options" data-q="2">
+        <div class="mc-option" onclick="selectMC(this)">already</div>
+        <div class="mc-option" onclick="selectMC(this)">yet</div>
+        <div class="mc-option" onclick="selectMC(this)">for</div>
+      </div>
+    </div>
+    <div class="item"><span class="num">3.</span> She has ___ left the office — you just missed her.
+      <div class="mc-options" data-q="3">
+        <div class="mc-option" onclick="selectMC(this)">since</div>
+        <div class="mc-option" onclick="selectMC(this)">just</div>
+        <div class="mc-option" onclick="selectMC(this)">yet</div>
+      </div>
+    </div>
+    <div class="item"><span class="num">4.</span> We have known each other ___ 2018.
+      <div class="mc-options" data-q="4">
+        <div class="mc-option" onclick="selectMC(this)">for</div>
+        <div class="mc-option" onclick="selectMC(this)">since</div>
+        <div class="mc-option" onclick="selectMC(this)">already</div>
+      </div>
+    </div>
+    <div class="item"><span class="num">5.</span> I have ___ sent you the file — check your inbox.
+      <div class="mc-options" data-q="5">
+        <div class="mc-option" onclick="selectMC(this)">already</div>
+        <div class="mc-option" onclick="selectMC(this)">yet</div>
+        <div class="mc-option" onclick="selectMC(this)">since</div>
+      </div>
+    </div>
+    <div class="item"><span class="num">6.</span> They haven't called the supplier ___.
+      <div class="mc-options" data-q="6">
+        <div class="mc-option" onclick="selectMC(this)">just</div>
+        <div class="mc-option" onclick="selectMC(this)">already</div>
+        <div class="mc-option" onclick="selectMC(this)">yet</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2: Word Bank Gap Fill -->
+  <div class="section">
+    <h2>2. Word Bank — Fill in the Gaps</h2>
+    <span class="time">10 min</span>
+    <div class="wordbank"><b>Word bank:</b> for &nbsp;·&nbsp; since &nbsp;·&nbsp; already &nbsp;·&nbsp; yet &nbsp;·&nbsp; just</div>
+    <div class="item"><span class="num">1.</span> I have lived in Balıkesir <input type="text"> I was born.</div>
+    <div class="item"><span class="num">2.</span> He has worked in engineering <input type="text"> ten years.</div>
+    <div class="item"><span class="num">3.</span> Has the shipment arrived <input type="text"> ?</div>
+    <div class="item"><span class="num">4.</span> We have <input type="text"> fixed the safety issue — no need to worry.</div>
+    <div class="item"><span class="num">5.</span> I have <input type="text"> emailed the client — it went out two minutes ago.</div>
+    <div class="item"><span class="num">6.</span> They haven't finished the audit <input type="text"> .</div>
+    <div class="item"><span class="num">7.</span> Our team has used this supplier <input type="text"> 2020.</div>
+  </div>
+
+  <!-- 3: Error Correction -->
+  <div class="section">
+    <h2>3. Error Correction — Find and fix the mistake</h2>
+    <span class="time">10 min</span>
+    <p class="tr-note">Her cümlede bir hata var. Doğrusunu yaz.</p>
+
+    <div class="item">
+      <div class="error-sentence">1. I have worked here since three years.</div>
+      Correction: <input type="text" style="width:280px;">
+    </div>
+    <div class="item">
+      <div class="error-sentence">2. She have already finished the presentation.</div>
+      Correction: <input type="text" style="width:280px;">
+    </div>
+    <div class="item">
+      <div class="error-sentence">3. Have you finish the report already?</div>
+      Correction: <input type="text" style="width:280px;">
+    </div>
+    <div class="item">
+      <div class="error-sentence">4. He hasn't call the client yet.</div>
+      Correction: <input type="text" style="width:280px;">
+    </div>
+    <div class="item">
+      <div class="error-sentence">5. We has been working here for five years.</div>
+      Correction: <input type="text" style="width:280px;">
+    </div>
+  </div>
+
+  <!-- 4: Matching (dropdown) -->
+  <div class="section">
+    <h2>4. Matching — Complete the sentence</h2>
+    <span class="time">10 min</span>
+    <p class="tr-note">Doğru sonu seç.</p>
+
+    <div class="item">1. I have worked at ETI
+      <select><option value="">-- choose --</option><option>since 2019.</option><option>for two years ago.</option><option>yet.</option></select>
+    </div>
+    <div class="item">2. Has the team
+      <select><option value="">-- choose --</option><option>already solved the problem?</option><option>solve already the problem?</option><option>solved the problem already yet?</option></select>
+    </div>
+    <div class="item">3. We haven't received the invoice
+      <select><option value="">-- choose --</option><option>already.</option><option>yet.</option><option>since.</option></select>
+    </div>
+    <div class="item">4. I have
+      <select><option value="">-- choose --</option><option>just spoken to the supplier.</option><option>spoken just to the supplier.</option><option>spoken to the supplier just.</option></select>
+    </div>
+    <div class="item">5. She has lived in Izmir
+      <select><option value="">-- choose --</option><option>since she was a child.</option><option>for she was a child.</option><option>already she was a child.</option></select>
+    </div>
+  </div>
+
+  <!-- 5: Sentence Building -->
+  <div class="section">
+    <h2>5. Sentence Building — Put the words in order</h2>
+    <span class="time">10 min</span>
+    <div class="item"><span class="num">1.</span> here / for / worked / three years / I / have <br> → <input type="text" style="width:320px;margin-top:6px;"></div>
+    <div class="item"><span class="num">2.</span> finished / already / the report / has / she <br> → <input type="text" style="width:320px;margin-top:6px;"></div>
+    <div class="item"><span class="num">3.</span> called / yet / you / the client / have <br> → <input type="text" style="width:320px;margin-top:6px;"></div>
+    <div class="item"><span class="num">4.</span> since / known / I / him / 2015 / have <br> → <input type="text" style="width:320px;margin-top:6px;"></div>
+    <div class="item"><span class="num">5.</span> just / has / left / the office / she <br> → <input type="text" style="width:320px;margin-top:6px;"></div>
+  </div>
+
+  <!-- 6: Free Writing -->
+  <div class="section">
+    <h2>6. Free Writing — About your job</h2>
+    <span class="time">10 min</span>
+    <p class="tr-note">Write 5–6 sentences about your work using present perfect (for/since/already/yet/just). / İşinle ilgili present perfect kullanarak 5-6 cümle yaz.</p>
+    <textarea placeholder="Example start: I have worked at ETI since..."></textarea>
+  </div>
+
+  <div class="teacher-notes" id="teacherNotes">
+    <b>Answer key — Multiple Choice:</b> 1-for, 2-yet, 3-just, 4-since, 5-already, 6-yet<br>
+    <b>Word Bank:</b> 1-since, 2-for, 3-yet, 4-already, 5-just, 6-yet, 7-since<br>
+    <b>Error Correction:</b> 1) since→for three years, 2) have→has, 3) finish→finished, 4) call→called, 5) has→have<br>
+    <b>Matching:</b> 1a, 2a, 3b, 4a, 5a<br>
+    <b>Sentence Building:</b> 1) I have worked here for three years. 2) She has already finished the report. 3) Have you called the client yet? 4) I have known him since 2015. 5) She has just left the office.<br>
+    <b>Common error to flag:</b> "since + duration" (since three years) instead of "for + duration" — this is Zafer's most frequent slip.
+  </div>
+
+</div>
+
+<button id="teacherNotesBtn" onclick="toggleNotes()">👁️ Teacher Notes</button>
+
+<div id="savebar">
+  <span id="saveStatus">Not saved</span>
+  <button onclick="saveWork()">💾 Save</button>
+  <button class="secondary" onclick="resetWork()">↺ Reset</button>
+</div>
+
+<script>
+function toggleAcc(el){
+  const body = el.nextElementSibling;
+  const arrow = el.querySelector('.arrow');
+  body.classList.toggle('open');
+  arrow.classList.toggle('open');
+}
+function toggleNotes(){
+  document.getElementById('teacherNotes').classList.toggle('visible');
+}
+function selectMC(el){
+  const group = el.parentElement;
+  group.querySelectorAll('.mc-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function saveWork(){
+  document.getElementById('saveStatus').textContent = 'Saved ✓ (' + new Date().toLocaleTimeString() + ')';
+}
+function resetWork(){
+  document.querySelectorAll('input[type=text]').forEach(i => i.value = '');
+  document.querySelectorAll('select').forEach(s => s.selectedIndex = 0);
+  document.querySelectorAll('textarea').forEach(t => t.value = '');
+  document.querySelectorAll('.mc-option.selected').forEach(o => o.classList.remove('selected'));
+  document.getElementById('saveStatus').textContent = 'Not saved';
+}
+</script>
+</body>
+</html>

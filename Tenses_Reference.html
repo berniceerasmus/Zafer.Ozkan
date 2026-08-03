@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>English Tenses Reference — Zafer</title>
+<style>
+  :root{
+    --navy:#1a2744;
+    --navy-light:#2c3e63;
+    --gold:#c9a24b;
+    --gold-light:#e8d5a3;
+    --cream:#faf6ec;
+    --cream-dark:#f0e8d4;
+    --text:#26314f;
+    --green:#3d7a5c;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:var(--cream);
+    color:var(--text);
+    padding:24px;
+  }
+  .wrap{max-width:1100px;margin:0 auto;}
+  header{
+    background:var(--navy);
+    color:var(--cream);
+    padding:28px 32px;
+    border-radius:12px;
+    margin-bottom:24px;
+    border-bottom:4px solid var(--gold);
+  }
+  header h1{margin:0 0 6px 0;font-size:1.6em;}
+  header p{margin:0;color:var(--gold-light);font-size:0.95em;}
+
+  .focus-box{
+    background:var(--navy);
+    color:var(--cream);
+    border-radius:12px;
+    padding:24px 28px;
+    margin-bottom:28px;
+    border-left:6px solid var(--gold);
+  }
+  .focus-box h2{margin-top:0;color:var(--gold);font-size:1.2em;}
+  .focus-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:14px;
+    margin-top:16px;
+  }
+  .focus-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(201,162,75,0.4);
+    border-radius:8px;
+    padding:14px 16px;
+  }
+  .focus-card .word{
+    color:var(--gold);
+    font-weight:700;
+    font-size:1.05em;
+    display:block;
+    margin-bottom:4px;
+  }
+  .focus-card .rule{font-size:0.88em;color:var(--gold-light);margin-bottom:8px;}
+  .focus-card .ex{font-size:0.92em;font-style:italic;color:var(--cream);}
+
+  .section-title{
+    font-size:1.15em;
+    color:var(--navy);
+    border-bottom:2px solid var(--gold);
+    padding-bottom:6px;
+    margin:32px 0 14px 0;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    margin-bottom:10px;
+  }
+  th{
+    background:var(--navy);
+    color:var(--gold-light);
+    text-align:left;
+    padding:12px 14px;
+    font-size:0.85em;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+  td{
+    padding:12px 14px;
+    border-bottom:1px solid var(--cream-dark);
+    font-size:0.95em;
+    vertical-align:top;
+  }
+  tr:last-child td{border-bottom:none;}
+  tr:hover td{background:var(--cream);}
+
+  .tense-name{font-weight:700;color:var(--navy);}
+  .tense-name .tr{margin-top:2px;font-size:0.78em;}
+  .form-label{
+    display:inline-block;
+    font-size:0.72em;
+    font-weight:700;
+    padding:2px 7px;
+    border-radius:4px;
+    margin-bottom:3px;
+    color:#fff;
+  }
+  .aff{background:var(--green);}
+  .neg{background:#a13d3d;}
+  .q{background:#2b6ca3;}
+
+  .pattern{font-family:Consolas,Monaco,monospace;font-size:0.88em;color:var(--navy-light);}
+  .example{font-style:italic;color:var(--text);}
+
+  .highlight-row td{background:var(--cream-dark);}
+
+  .time-tag{
+    display:inline-block;
+    background:var(--gold-light);
+    color:var(--navy);
+    font-size:0.78em;
+    padding:2px 8px;
+    border-radius:10px;
+    margin:2px 3px 0 0;
+  }
+
+  .note{
+    background:#fff3d6;
+    border:2px dashed var(--gold);
+    padding:14px 18px;
+    border-radius:6px;
+    margin:18px 0;
+    font-size:0.92em;
+    display:none;
+  }
+  .note.visible{display:block;}
+  #teacherNotesBtn{
+    position:fixed;bottom:20px;right:20px;
+    background:var(--navy);color:var(--gold-light);
+    border:2px solid var(--gold);border-radius:30px;
+    padding:10px 18px;font-size:0.9em;cursor:pointer;
+    box-shadow:0 3px 10px rgba(0,0,0,0.25);z-index:999;
+  }
+  #teacherNotesBtn:hover{background:var(--navy-light);}
+
+  .tr{
+    color:var(--navy-light);
+    font-style:italic;
+    font-size:0.9em;
+    display:block;
+    margin-top:2px;
+  }
+  .focus-card .tr{color:var(--gold-light);opacity:0.9;}
+  .note .tr{margin-top:6px;color:#5a6685;}
+  td .tr{margin-top:4px;}
+
+  @media(max-width:700px){
+    table, thead, tbody, th, td, tr{display:block;}
+    thead{display:none;}
+    tr{margin-bottom:14px;border:1px solid var(--cream-dark);border-radius:8px;overflow:hidden;}
+    td{border-bottom:1px solid var(--cream-dark);}
+    td::before{
+      content:attr(data-label);
+      display:block;
+      font-weight:700;
+      color:var(--gold);
+      font-size:0.72em;
+      text-transform:uppercase;
+      margin-bottom:3px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>English Tenses — Full Reference Table</h1>
+    <p>Structures, patterns &amp; examples · Special focus: Present Perfect with for / since / already</p>
+    <p class="tr" style="margin-top:6px;">Yapılar, kalıplar ve örnekler · Bu haftanın konusu: for / since / already ile Present Perfect</p>
+  </header>
+
+  <div class="focus-box">
+    <h2>🎯 This week's focus: for, since, already (+ yet, just)</h2>
+    <p class="tr" style="margin:-8px 0 4px 0;">Bu haftanın konusu: for, since, already (+ yet, just)</p>
+    <div class="focus-grid">
+      <div class="focus-card">
+        <span class="word">FOR</span>
+        <div class="rule">a period of time (duration)</div>
+        <span class="tr">bir süre boyunca (ne kadar zamandır)</span>
+        <div class="ex">I have worked here <b>for</b> three years.</div>
+        <span class="tr">Burada üç yıldır çalışıyorum.</span>
+      </div>
+      <div class="focus-card">
+        <span class="word">SINCE</span>
+        <div class="rule">a starting point in time</div>
+        <span class="tr">bir başlangıç noktası (ne zamandan beri)</span>
+        <div class="ex">I have worked here <b>since</b> 2021.</div>
+        <span class="tr">2021'den beri burada çalışıyorum.</span>
+      </div>
+      <div class="focus-card">
+        <span class="word">ALREADY</span>
+        <div class="rule">something happened sooner than expected (affirmative, mid-sentence)</div>
+        <span class="tr">beklenenden önce oldu (olumlu cümle, ortada kullanılır)</span>
+        <div class="ex">I have <b>already</b> finished the report.</div>
+        <span class="tr">Raporu zaten bitirdim.</span>
+      </div>
+      <div class="focus-card">
+        <span class="word">YET</span>
+        <div class="rule">negatives &amp; questions, end of sentence — not happened / has it happened?</div>
+        <span class="tr">olumsuz ve soru cümlelerinde, cümle sonunda — henüz olmadı / oldu mu?</span>
+        <div class="ex">I haven't finished it <b>yet</b>. Have you finished <b>yet</b>?</div>
+        <span class="tr">Henüz bitirmedim. Henüz bitirdin mi?</span>
+      </div>
+      <div class="focus-card">
+        <span class="word">JUST</span>
+        <div class="rule">very recently, mid-sentence</div>
+        <span class="tr">çok yakın zamanda (az önce), cümle ortasında</span>
+        <div class="ex">I have <b>just</b> sent the email.</div>
+        <span class="tr">E-postayı az önce gönderdim.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" id="tnote">
+    <b>Quick check for Zafer:</b> FOR + a length of time (two hours, ten years, a long time) · SINCE + a point in time (Monday, 2019, 9 o'clock, I started this job). If he can name the exact starting moment → <b>since</b>. If he can only count how long → <b>for</b>.
+    <span class="tr">Hızlı kontrol: FOR + bir süre (iki saat, on yıl) · SINCE + bir zaman noktası (Pazartesi, 2021, işe başladığım gün). Kesin başlangıç anını söyleyebiliyorsa → since. Sadece "ne kadar zamandır" diyebiliyorsa → for.</span>
+  </div>
+
+  <div class="section-title">Present Tenses <span style="font-size:0.75em;color:var(--navy-light);font-weight:400;">/ Şimdiki Zamanlar</span></div>
+  <table>
+    <thead><tr><th>Tense</th><th>Structure</th><th>Example</th><th>Time words</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-label="Tense" class="tense-name">Present Simple<span class="tr" style="font-weight:400;">Geniş Zaman</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + V(s/es)</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + don't/doesn't + V</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Do/Does + S + V?</span>
+        </td>
+        <td data-label="Example" class="example">He works in the factory. He doesn't work on Sundays. Does he work here?
+          <span class="tr">Fabrikada çalışıyor. Pazar günleri çalışmıyor. Burada mı çalışıyor?</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">always</span><span class="time-tag">every day</span><span class="time-tag">usually</span></td>
+      </tr>
+      <tr>
+        <td data-label="Tense" class="tense-name">Present Continuous<span class="tr" style="font-weight:400;">Şimdiki Zaman</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + am/is/are + V-ing</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + am/is/are + not + V-ing</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Am/Is/Are + S + V-ing?</span>
+        </td>
+        <td data-label="Example" class="example">She is working now. She isn't working today. Is she working?
+          <span class="tr">Şu anda çalışıyor. Bugün çalışmıyor. Çalışıyor mu?</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">now</span><span class="time-tag">right now</span><span class="time-tag">at the moment</span></td>
+      </tr>
+      <tr class="highlight-row">
+        <td data-label="Tense" class="tense-name">Present Perfect<span class="tr" style="font-weight:400;">Şimdiki Zamanın Hikayesi</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + have/has + V3</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + haven't/hasn't + V3</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Have/Has + S + V3?</span>
+        </td>
+        <td data-label="Example" class="example">I have worked here for 3 years. I haven't finished yet. Have you seen him since Monday?
+          <span class="tr">Burada 3 yıldır çalışıyorum. Henüz bitirmedim. Pazartesiden beri onu gördün mü?</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">for</span><span class="time-tag">since</span><span class="time-tag">already</span><span class="time-tag">yet</span><span class="time-tag">just</span><span class="time-tag">ever</span><span class="time-tag">never</span></td>
+      </tr>
+      <tr>
+        <td data-label="Tense" class="tense-name">Present Perfect Continuous<span class="tr" style="font-weight:400;">Şimdiki Zamanın Hikayesinin Sürerlilik Hali</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + have/has + been + V-ing</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + haven't/hasn't + been + V-ing</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Have/Has + S + been + V-ing?</span>
+        </td>
+        <td data-label="Example" class="example">I have been waiting for an hour. Has it been raining all day?
+          <span class="tr">Bir saattir bekliyorum. Bütün gün yağmur mu yağıyordu?</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">for</span><span class="time-tag">since</span><span class="time-tag">lately</span><span class="time-tag">recently</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">Past Tenses <span style="font-size:0.75em;color:var(--navy-light);font-weight:400;">/ Geçmiş Zamanlar</span></div>
+  <table>
+    <thead><tr><th>Tense</th><th>Structure</th><th>Example</th><th>Time words</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-label="Tense" class="tense-name">Past Simple<span class="tr" style="font-weight:400;">Geçmiş Zaman</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + V2</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + didn't + V</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Did + S + V?</span>
+        </td>
+        <td data-label="Example" class="example">I visited South Africa in 2019. I didn't call him. Did you finish the report?
+          <span class="tr">2019'da Güney Afrika'yı ziyaret ettim. Onu aramadım. Raporu bitirdin mi?</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">yesterday</span><span class="time-tag">last week</span><span class="time-tag">in 2019</span><span class="time-tag">ago</span></td>
+      </tr>
+      <tr>
+        <td data-label="Tense" class="tense-name">Past Continuous<span class="tr" style="font-weight:400;">Şimdiki Zamanın Hikayesi (Geçmişte)</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + was/were + V-ing</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + wasn't/weren't + V-ing</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Was/Were + S + V-ing?</span>
+        </td>
+        <td data-label="Example" class="example">I was working when he called. They weren't listening. Were you sleeping at 9pm?
+          <span class="tr">O aradığında çalışıyordum. Dinlemiyorlardı. Saat 9'da uyuyor muydun?</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">while</span><span class="time-tag">when</span><span class="time-tag">at that moment</span></td>
+      </tr>
+      <tr>
+        <td data-label="Tense" class="tense-name">Past Perfect<span class="tr" style="font-weight:400;">Geçmiş Zamanın Hikayesi</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + had + V3</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + hadn't + V3</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Had + S + V3?</span>
+        </td>
+        <td data-label="Example" class="example">I had finished before he arrived. She hadn't left yet. Had they met before?
+          <span class="tr">O gelmeden önce bitirmiştim. Henüz gitmemişti. Daha önce tanışmışlar mıydı?</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">before</span><span class="time-tag">after</span><span class="time-tag">by the time</span><span class="time-tag">already</span></td>
+      </tr>
+      <tr>
+        <td data-label="Tense" class="tense-name">Past Perfect Continuous<span class="tr" style="font-weight:400;">Geçmiş Zamanın Hikayesinin Sürerlilik Hali</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + had + been + V-ing</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + hadn't + been + V-ing</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Had + S + been + V-ing?</span>
+        </td>
+        <td data-label="Example" class="example">I had been working for two hours before the meeting started.
+          <span class="tr">Toplantı başlamadan önce iki saattir çalışıyordum.</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">for</span><span class="time-tag">since</span><span class="time-tag">before</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">Future Tenses <span style="font-size:0.75em;color:var(--navy-light);font-weight:400;">/ Gelecek Zamanlar</span></div>
+  <table>
+    <thead><tr><th>Tense</th><th>Structure</th><th>Example</th><th>Time words</th></tr></thead>
+    <tbody>
+      <tr>
+        <td data-label="Tense" class="tense-name">Future Simple (will)<span class="tr" style="font-weight:400;">Gelecek Zaman</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + will + V</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + won't + V</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Will + S + V?</span>
+        </td>
+        <td data-label="Example" class="example">I will call you tomorrow. He won't be late. Will you attend the meeting?
+          <span class="tr">Seni yarın arayacağım. O geç kalmayacak. Toplantıya katılacak mısın?</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">tomorrow</span><span class="time-tag">next week</span><span class="time-tag">soon</span></td>
+      </tr>
+      <tr>
+        <td data-label="Tense" class="tense-name">Future Continuous<span class="tr" style="font-weight:400;">Gelecekte Şimdiki Zaman</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + will be + V-ing</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + won't be + V-ing</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Will + S + be + V-ing?</span>
+        </td>
+        <td data-label="Example" class="example">This time tomorrow I will be flying to Bucharest.
+          <span class="tr">Yarın bu saatte Bükreş'e uçuyor olacağım.</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">this time tomorrow</span><span class="time-tag">at 5pm next Friday</span></td>
+      </tr>
+      <tr>
+        <td data-label="Tense" class="tense-name">Future Perfect<span class="tr" style="font-weight:400;">Gelecekte Tamamlanmış Zaman</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + will have + V3</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + won't have + V3</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Will + S + have + V3?</span>
+        </td>
+        <td data-label="Example" class="example">By next year I will have finished the project.
+          <span class="tr">Gelecek yıla kadar projeyi bitirmiş olacağım.</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">by</span><span class="time-tag">by the time</span></td>
+      </tr>
+      <tr>
+        <td data-label="Tense" class="tense-name">Future Perfect Continuous<span class="tr" style="font-weight:400;">Gelecekte Tamamlanmış Zamanın Sürerlilik Hali</span></td>
+        <td data-label="Structure">
+          <span class="form-label aff">+</span> <span class="pattern">S + will have been + V-ing</span><br>
+          <span class="form-label neg">−</span> <span class="pattern">S + won't have been + V-ing</span><br>
+          <span class="form-label q">?</span> <span class="pattern">Will + S + have been + V-ing?</span>
+        </td>
+        <td data-label="Example" class="example">By June, I will have been working here for five years.
+          <span class="tr">Haziran'a kadar burada beş yıldır çalışıyor olacağım.</span>
+        </td>
+        <td data-label="Time"><span class="time-tag">by</span><span class="time-tag">for</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="note" id="tnote2">
+    <b>Suggested drill for Zafer:</b> give him 10 present-perfect prompts mixing FOR (a duration), SINCE (a point), ALREADY (mid-sentence, affirmative), YET (end, negative/question), JUST (mid-sentence, recent). Have him build the full sentence out loud rather than just filling a blank — this is a speaking lesson, so the goal is fluent production, not just recognition.
+    <span class="tr">Zafer için önerilen alıştırma: FOR (süre), SINCE (başlangıç noktası), ALREADY (olumlu, ortada), YET (olumsuz/soru, sonda), JUST (yakın zaman, ortada) karışık 10 present perfect cümlesi kurdurun. Boşluk doldurmak yerine cümleyi sesli olarak tam kurmasını isteyin — bu bir konuşma dersi, amaç tanımak değil akıcı üretmek.</span>
+  </div>
+
+</div>
+
+<button id="teacherNotesBtn" onclick="toggleNotes()">👁️ Teacher Notes</button>
+
+<script>
+function toggleNotes(){
+  document.getElementById('tnote').classList.toggle('visible');
+  document.getElementById('tnote2').classList.toggle('visible');
+}
+</script>
+</body>
+</html>
