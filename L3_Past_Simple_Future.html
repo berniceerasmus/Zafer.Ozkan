@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3 — Past Simple vs Future | Zafer&#x27;s A1-A2 Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:         #1a2230;
+  --ink-mid:     #455066;
+  --ink-light:   #8b96aa;
+  --paper:       #f7f8fa;
+  --paper-mid:   #edeff3;
+  --white:       #ffffff;
+  --border:      #dde1e8;
+  --gold:        #c49a3c;
+  --gold-d:      #8a6518;
+  --gold-light:  #faf5e4;
+  --gold-mid:    #e8d49a;
+  --terra:       #c0603a;
+  --terra-d:     #8f3f20;
+  --terra-light: #fdf0ea;
+  --terra-mid:   #e8c4b4;
+  --sage:        #5e7a52;
+  --sage-d:      #3d5433;
+  --sage-light:  #eaf2e4;
+  --sage-mid:    #b8cead;
+  --blue:        #3a6fa8;
+  --blue-d:      #1e4a7a;
+  --blue-light:  #e8f0fb;
+  --blue-mid:    #b8cef0;
+  --plum:        #7a4a8a;
+  --plum-light:  #f3edf7;
+  --plum-mid:    #d4b8e0;
+  --accent:      #2e6fa8;
+  --accent-light:#e8f0fb;
+  --accent-mid:  #b8cef0;
+  --radius:      10px;
+  --shadow:      0 2px 14px rgba(26,34,48,0.07);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Source Serif 4', Georgia, serif; background: var(--paper); color: var(--ink); min-height: 100vh; padding-bottom: 6rem; }
+
+.hero { background: var(--ink); color: var(--paper); padding: 3rem 2rem 2.4rem; position: relative; overflow: hidden; }
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 90% at 90% 40%, rgba(196,154,60,0.13) 0%, transparent 65%),
+    repeating-linear-gradient(-55deg, transparent, transparent 20px, rgba(46,111,168,0.05) 20px, rgba(46,111,168,0.05) 21px);
+}
+.hero-inner { max-width: 860px; margin: 0 auto; position: relative; }
+.series-label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 5vw, 2.9rem); font-weight: 700; line-height: 1.15; margin-bottom: 0.5rem; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: 14px; color: rgba(250,248,244,0.65); max-width: 520px; line-height: 1.7; margin-bottom: 1.4rem; }
+.hero-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-pill { font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; padding: 4px 13px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.15); color: rgba(250,248,244,0.75); }
+
+.grammar-banner { background: var(--gold-light); border-bottom: 2px solid var(--gold-mid); padding: 1.5rem 2rem; }
+.gb-inner { max-width: 860px; margin: 0 auto; }
+.gb-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold-d); margin-bottom: 1rem; display: flex; align-items: center; gap: 7px; }
+.gb-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.gb-card { background: var(--white); border: 1px solid var(--gold-mid); border-radius: 10px; padding: 13px 15px; }
+.gb-card-title { font-size: 13px; font-weight: 700; color: var(--gold-d); margin-bottom: 4px; }
+.gb-card-form { font-size: 11.5px; font-family: monospace; background: var(--gold-light); color: var(--gold-d); border-radius: 4px; padding: 2px 8px; display: inline-block; margin-bottom: 6px; }
+.gb-card-use { font-size: 12px; color: var(--ink-mid); margin-bottom: 5px; line-height: 1.5; }
+.gb-card-ex { font-size: 12px; font-style: italic; color: var(--ink-light); line-height: 1.6; }
+.gb-card-ex::before { content: '\2192 '; font-style: normal; }
+
+.progress-wrap { max-width: 860px; margin: 1.8rem auto 0; padding: 0 1.4rem; }
+.progress-label { font-size: 11.5px; color: var(--ink-light); display: flex; justify-content: space-between; margin-bottom: 5px; }
+.progress-bar-outer { height: 5px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.progress-bar-inner { height: 100%; border-radius: 99px; transition: width 0.4s ease; background: var(--accent); }
+
+.main { max-width: 860px; margin: 0 auto; padding: 0 1.4rem; }
+
+.sec-head { display: flex; align-items: center; gap: 13px; margin: 2.4rem 0 1.1rem; }
+.sec-num { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--white); flex-shrink: 0; background: var(--accent); }
+.sec-title-wrap {}
+.sec-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; line-height: 1.2; }
+.sec-sub { font-size: 12px; color: var(--ink-light); margin-top: 2px; }
+.sec-divider { flex: 1; height: 1px; background: var(--border); margin-left: 6px; }
+
+.card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; margin-bottom: 14px; box-shadow: var(--shadow); }
+.card-tag { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 12px; background: var(--accent-light); color: var(--accent); }
+.card-instruction { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; line-height: 1.5; }
+.card-note { font-size: 12.5px; color: var(--ink-light); font-style: italic; margin-bottom: 14px; line-height: 1.5; }
+
+.word-bank { background: var(--gold-light); border: 1px solid var(--gold-mid); border-radius: 8px; padding: 12px 14px; margin-bottom: 16px; }
+.wb-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-d); margin-bottom: 8px; }
+.wb-words { display: flex; flex-wrap: wrap; gap: 7px; }
+.wb-word { font-size: 13px; background: var(--white); border: 1px solid var(--gold-mid); color: #6b4c0a; padding: 3px 12px; border-radius: 20px; font-style: italic; }
+
+.fill-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.fill-item { display: flex; align-items: baseline; gap: 9px; }
+.fill-num { font-size: 12px; font-weight: 700; color: var(--ink-light); min-width: 22px; flex-shrink: 0; }
+.fill-text { font-size: 14px; line-height: 1.9; color: var(--ink); flex: 1; }
+.fill-input { display: inline-block; border: none; border-bottom: 1.5px solid var(--terra-mid); background: transparent; font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink); min-width: 130px; padding: 0 4px; outline: none; transition: border-color 0.15s; }
+.fill-input:focus { border-color: var(--terra); }
+.fill-input.correct { border-color: var(--sage); background: var(--sage-light); border-radius: 4px 4px 0 0; }
+.fill-input.wrong { border-color: var(--terra); background: var(--terra-light); border-radius: 4px 4px 0 0; }
+
+.match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.match-col-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-light); margin-bottom: 10px; }
+.match-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.match-key { font-size: 12px; font-weight: 700; color: var(--white); background: var(--sage); border-radius: 50%; width: 23px; height: 23px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.match-letter { font-size: 12px; font-weight: 700; color: var(--white); background: var(--terra); border-radius: 50%; width: 23px; height: 23px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.match-text { font-size: 13.5px; color: var(--ink); line-height: 1.45; }
+.match-select { font-family: 'Source Serif 4', serif; font-size: 13px; border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; background: var(--paper-mid); color: var(--ink); outline: none; cursor: pointer; transition: border 0.15s; }
+.match-select:focus { border-color: var(--accent); }
+.match-select.correct { border-color: var(--sage); background: var(--sage-light); }
+.match-select.wrong { border-color: var(--terra); background: var(--terra-light); }
+.match-answer-row { display:flex; gap:10px; align-items:center; }
+.match-answer-row .mnum { font-size:13px; min-width:20px; font-weight:700; color:var(--ink-light); }
+
+.error-list { display: flex; flex-direction: column; gap: 13px; }
+.error-item { background: var(--paper-mid); border-radius: 8px; padding: 13px 15px; border-left: 3px solid var(--terra-mid); }
+.error-sentence { font-size: 14px; font-style: italic; color: var(--ink-mid); margin-bottom: 8px; line-height: 1.6; }
+.error-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-light); margin-bottom: 5px; }
+.error-input { width: 100%; border: none; border-bottom: 1.5px solid var(--terra-mid); background: transparent; font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink); padding: 3px 4px; outline: none; transition: border-color 0.15s; }
+.error-input:focus { border-color: var(--terra); }
+.error-input.correct { border-color: var(--sage); background: var(--sage-light); }
+.error-input.wrong { border-color: var(--terra); background: var(--terra-light); }
+
+.wo-list { display: flex; flex-direction: column; gap: 13px; }
+.wo-item { background: var(--paper-mid); border-radius: 8px; padding: 13px 15px; }
+.wo-jumbled { font-size: 13px; font-style: italic; color: var(--ink-light); margin-bottom: 8px; line-height: 1.6; }
+.wo-jumbled span { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 1px 7px; margin-right: 4px; display: inline-block; color: var(--ink-mid); }
+.wo-input { width: 100%; border: none; border-bottom: 1.5px solid var(--blue-mid); background: transparent; font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink); padding: 3px 4px; outline: none; transition: border-color 0.15s; }
+.wo-input:focus { border-color: var(--blue); }
+.wo-input.correct { border-color: var(--sage); background: var(--sage-light); }
+.wo-input.wrong { border-color: var(--terra); background: var(--terra-light); }
+
+.dialogue-box { background: var(--paper-mid); border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; }
+.dialogue-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-light); margin-bottom: 10px; }
+.so-list { display: flex; flex-direction: column; gap: 8px; }
+.so-sentence { background: var(--white); border: 1px solid var(--border); border-radius: 7px; padding: 10px 14px; font-size: 13.5px; font-style: italic; color: var(--ink-mid); display: flex; align-items: center; gap: 10px; }
+.so-sentence .so-letter { font-size: 12px; font-weight: 700; color: var(--white); background: var(--plum); border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-style: normal; }
+.so-select { font-family: 'Source Serif 4', serif; font-size: 13px; border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; background: var(--paper-mid); color: var(--ink); outline: none; cursor: pointer; }
+.so-select:focus { border-color: var(--plum); }
+.so-select.correct { border-color: var(--sage); background: var(--sage-light); }
+.so-select.wrong { border-color: var(--terra); background: var(--terra-light); }
+
+.reading-passage { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 20px 22px; margin-bottom: 16px; line-height: 1.85; font-size: 14px; color: var(--ink); }
+.reading-passage p + p { margin-top: 0.9em; }
+.reading-q-list { display: flex; flex-direction: column; gap: 12px; }
+.reading-q { background: var(--paper-mid); border-radius: 8px; padding: 13px 15px; }
+.reading-q-text { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.reading-q-input { width: 100%; border: none; border-bottom: 1.5px solid var(--gold-mid); background: transparent; font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink); padding: 3px 4px; outline: none; transition: border-color 0.15s; }
+.reading-q-input:focus { border-color: var(--gold-d); }
+
+.disc-list { display: flex; flex-direction: column; gap: 9px; }
+.disc-q { background: var(--paper-mid); border: 0.5px solid var(--border); border-radius: 8px; padding: 11px 14px; font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+.disc-q::before { content: '\1F4AC '; }
+
+.writing-prompts { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.writing-prompt { background: var(--paper-mid); border-left: 3px solid var(--sage-mid); border-radius: 0 8px 8px 0; padding: 11px 14px; font-size: 13.5px; line-height: 1.55; }
+.writing-prompt strong { color: var(--sage-d); }
+.writing-textarea { width: 100%; min-height: 90px; border: 1.5px solid var(--border); border-radius: 8px; background: var(--white); font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink); padding: 12px 14px; resize: vertical; outline: none; line-height: 1.7; transition: border-color 0.15s; margin-top: 6px; }
+.writing-textarea:focus { border-color: var(--sage); }
+
+.check-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+.btn-check { font-family: 'Source Serif 4', serif; font-size: 13px; font-weight: 600; padding: 8px 22px; border-radius: 99px; border: none; cursor: pointer; transition: all 0.18s; background: var(--accent); color: var(--white); }
+.btn-check:hover { background: var(--blue-d); }
+.btn-reveal { font-family: 'Source Serif 4', serif; font-size: 12.5px; padding: 7px 16px; border-radius: 99px; border: 1.5px solid var(--border); background: transparent; color: var(--ink-light); cursor: pointer; transition: all 0.18s; }
+.btn-reveal:hover { border-color: var(--gold); color: var(--gold-d); }
+.score-badge { font-size: 12px; font-weight: 700; padding: 5px 13px; border-radius: 20px; background: var(--paper-mid); color: var(--ink-mid); }
+.score-badge.good { background: var(--sage-light); color: var(--sage-d); }
+.score-badge.ok { background: var(--gold-light); color: var(--gold-d); }
+.score-badge.low { background: var(--terra-light); color: var(--terra-d); }
+.answer-key { background: var(--sage-light); border: 1px solid var(--sage-mid); border-radius: 8px; padding: 13px 15px; margin-top: 12px; display: none; }
+.answer-key.open { display: block; }
+.answer-key-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sage-d); margin-bottom: 8px; }
+.answer-key ol { padding-left: 18px; }
+.answer-key ol li { font-size: 13px; color: var(--ink-mid); padding: 2px 0; }
+
+.save-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--white); border-top: 1px solid var(--border); padding: 12px 1.4rem; display: flex; align-items: center; justify-content: space-between; max-width: 100%; z-index: 100; box-shadow: 0 -4px 20px rgba(30,27,22,0.08); }
+.save-status { font-size: 12px; color: var(--ink-light); }
+.save-actions { display: flex; gap: 8px; }
+.btn-save { font-family: 'Source Serif 4', serif; font-size: 13px; font-weight: 600; padding: 7px 20px; border-radius: 99px; border: none; background: var(--ink); color: var(--white); cursor: pointer; transition: background 0.18s; }
+.btn-save:hover { background: var(--terra); }
+.btn-reset { font-family: 'Source Serif 4', serif; font-size: 13px; padding: 7px 16px; border-radius: 99px; border: 1.5px solid var(--border); background: transparent; color: var(--ink-light); cursor: pointer; transition: all 0.18s; }
+.btn-reset:hover { border-color: var(--terra); color: var(--terra); }
+
+@media (max-width: 600px) {
+  .match-grid { grid-template-columns: 1fr; }
+  .hero { padding: 2rem 1.2rem 1.8rem; }
+  .grammar-banner { padding: 1.2rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <p class="series-label">A1–A2 Grammar Review Series · Lesson 3 of 4</p>
+    <h1>Past Simple <em>vs</em> Future</h1>
+    <p class="hero-sub">Talk about what happened last week and what will happen next — accurately and automatically.</p>
+    <div class="hero-pills"><span class="hero-pill">A1–A2</span><span class="hero-pill">~45 minutes</span><span class="hero-pill">Medical Sales English</span><span class="hero-pill">8 sections</span></div>
+  </div>
+</div>
+<div class="grammar-banner"><div class="gb-inner">
+<p class="gb-label">📐 Grammar at a glance</p>
+<div class="gb-grid">
+<div class="gb-card">
+          <p class="gb-card-title">Past Simple</p>
+          <p class="gb-card-form">verb+ed / irregular form</p>
+          <p class="gb-card-use">Finished actions at a specific time in the past.</p>
+          <p class="gb-card-ex">I visited the clinic yesterday. / She called last week.</p>
+        </div>
+<div class="gb-card">
+          <p class="gb-card-title">Going to</p>
+          <p class="gb-card-form">am/is/are + going to + verb</p>
+          <p class="gb-card-use">Plans and intentions decided before now.</p>
+          <p class="gb-card-ex">I&#x27;m going to visit three clients tomorrow.</p>
+        </div>
+<div class="gb-card">
+          <p class="gb-card-title">Will</p>
+          <p class="gb-card-form">will + verb</p>
+          <p class="gb-card-use">Predictions, promises, decisions made now.</p>
+          <p class="gb-card-ex">I think we will sell more next quarter. / I&#x27;ll call you back.</p>
+        </div>
+</div></div></div>
+<div class="progress-wrap">
+    <p class="progress-label"><span id="prog-text">Progress — 0 of 8 sections started</span><span id="prog-pct">0%</span></p>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="prog-bar" style="width:0%"></div></div>
+  </div>
+<div class="main">
+<div class="sec-head">
+    <div class="sec-num">1</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Fill in the Gaps</p>
+      <p class="sec-sub">Complete each sentence with past simple, going to, or will</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Complete the sentences with the correct past or future form given in brackets.</p><ul class="fill-list">
+<li class="fill-item">
+        <span class="fill-num">1.</span>
+        <span class="fill-text">I <input class="fill-input" data-key="l3_f1" data-answer="visited"> (visit) a client yesterday afternoon.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">2.</span>
+        <span class="fill-text">She <input class="fill-input" data-key="l3_f2" data-answer="went"> (go) to the conference last month.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">3.</span>
+        <span class="fill-text">We <input class="fill-input" data-key="l3_f3" data-answer="didn&#x27;t have"> (not / have) any meetings last Friday.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">4.</span>
+        <span class="fill-text"><input class="fill-input" data-key="l3_f4" data-answer="Did you call"> the doctor yesterday? (you / call)</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">5.</span>
+        <span class="fill-text">I <input class="fill-input" data-key="l3_f5" data-answer="am"> (be) going to present the new product next week.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">6.</span>
+        <span class="fill-text">I think sales <input class="fill-input" data-key="l3_f6" data-answer="will increase"> (increase) next quarter.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">7.</span>
+        <span class="fill-text">We <input class="fill-input" data-key="l3_f7" data-answer="are going to launch"> (going to / launch) a new product next month.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">8.</span>
+        <span class="fill-text">He <input class="fill-input" data-key="l3_f8" data-answer="saw"> (see) three doctors last Tuesday.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">9.</span>
+        <span class="fill-text"><input class="fill-input" data-key="l3_f9" data-answer="Will"> (will) you help me prepare the presentation?</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">10.</span>
+        <span class="fill-text">They <input class="fill-input" data-key="l3_f10" data-answer="aren&#x27;t going to attend"> (not / going to / attend) the meeting tomorrow.</span>
+      </li>
+</ul><div class="check-row">
+      <button class="btn-check" onclick="checkFill('l3_fill')">Check answers</button>
+      <button class="btn-reveal" onclick="toggleKey('l3_fill_key')">Show answers</button>
+      <span class="score-badge" id="l3_fill_score"></span>
+    </div><div class="answer-key" id="l3_fill_key"><p class="answer-key-title">✓ Answer key</p><ol><li>visited</li><li>went</li><li>didn&#x27;t have</li><li>Did you call</li><li>am</li><li>will increase</li><li>are going to launch</li><li>saw</li><li>Will</li><li>aren&#x27;t going to attend</li></ol></div></div>
+<div class="sec-head">
+    <div class="sec-num">2</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Match</p>
+      <p class="sec-sub">Match each situation (1-10) with the sentence that fits it (A-J)</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Match each situation (1-10) with the sentence that best expresses it (A-J).</p><div class="match-grid"><div><p class="match-col-label">A</p><div class="match-item"><span class="match-key">1</span><span class="match-text">Talking about a finished action yesterday</span></div><div class="match-item"><span class="match-key">2</span><span class="match-text">Talking about a plan already decided</span></div><div class="match-item"><span class="match-key">3</span><span class="match-text">Making a prediction about the future</span></div><div class="match-item"><span class="match-key">4</span><span class="match-text">Asking about a past event</span></div><div class="match-item"><span class="match-key">5</span><span class="match-text">Talking about something that didn&#x27;t happen</span></div><div class="match-item"><span class="match-key">6</span><span class="match-text">Making a promise</span></div><div class="match-item"><span class="match-key">7</span><span class="match-text">Describing a company plan for next year</span></div><div class="match-item"><span class="match-key">8</span><span class="match-text">Talking about an irregular past verb</span></div><div class="match-item"><span class="match-key">9</span><span class="match-text">Making a spontaneous decision</span></div><div class="match-item"><span class="match-key">10</span><span class="match-text">Asking about future plans</span></div></div><div><p class="match-col-label">B</p><div class="match-item"><span class="match-letter">A</span><span class="match-text">I promise I&#x27;ll send the report today.</span></div><div class="match-item"><span class="match-letter">B</span><span class="match-text">I think our sales will grow this year.</span></div><div class="match-item"><span class="match-letter">C</span><span class="match-text">What are you going to do tomorrow?</span></div><div class="match-item"><span class="match-letter">D</span><span class="match-text">I visited two clients yesterday morning.</span></div><div class="match-item"><span class="match-letter">E</span><span class="match-text">She went to Ankara for the conference.</span></div><div class="match-item"><span class="match-letter">F</span><span class="match-text">Did you go to the meeting last week?</span></div><div class="match-item"><span class="match-letter">G</span><span class="match-text">I&#x27;m going to present the new product on Friday.</span></div><div class="match-item"><span class="match-letter">H</span><span class="match-text">I&#x27;ll call the client right now.</span></div><div class="match-item"><span class="match-letter">I</span><span class="match-text">The company is going to open a new office next year.</span></div><div class="match-item"><span class="match-letter">J</span><span class="match-text">We didn&#x27;t have any samples last month.</span></div></div></div><div style="margin-top:14px; display:flex; flex-direction:column; gap:8px;">
+<div class="match-answer-row"><span class="mnum">1→</span>
+        <select class="match-select" data-key="l3_m1" data-answer="D"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">2→</span>
+        <select class="match-select" data-key="l3_m2" data-answer="G"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">3→</span>
+        <select class="match-select" data-key="l3_m3" data-answer="B"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">4→</span>
+        <select class="match-select" data-key="l3_m4" data-answer="F"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">5→</span>
+        <select class="match-select" data-key="l3_m5" data-answer="J"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">6→</span>
+        <select class="match-select" data-key="l3_m6" data-answer="A"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">7→</span>
+        <select class="match-select" data-key="l3_m7" data-answer="I"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">8→</span>
+        <select class="match-select" data-key="l3_m8" data-answer="E"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">9→</span>
+        <select class="match-select" data-key="l3_m9" data-answer="H"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">10→</span>
+        <select class="match-select" data-key="l3_m10" data-answer="C"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+</div><div class="check-row">
+      <button class="btn-check" onclick="checkMatch('l3_match')">Check answers</button>
+      <button class="btn-reveal" onclick="toggleKey('l3_match_key')">Show answers</button>
+      <span class="score-badge" id="l3_match_score"></span>
+    </div><div class="answer-key" id="l3_match_key"><p class="answer-key-title">✓ Answer key</p><ol><li>D</li><li>G</li><li>B</li><li>F</li><li>J</li><li>A</li><li>I</li><li>E</li><li>H</li><li>C</li></ol></div></div>
+<div class="sec-head">
+    <div class="sec-num">3</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Error Correction</p>
+      <p class="sec-sub">Find and correct the tense mistake in each sentence</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Each sentence contains one past or future tense mistake. Write the corrected sentence.</p><div class="error-list">
+<div class="error-item">
+        <p class="error-sentence">1. "I visit the clinic yesterday."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="l3_e1" data-answer="I visited the clinic yesterday.">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">2. "She go to the meeting last week."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="l3_e2" data-answer="She went to the meeting last week.">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">3. "We didn&#x27;t went to the conference."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="l3_e3" data-answer="We didn&#x27;t go to the conference.">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">4. "Did you called the doctor?"</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="l3_e4" data-answer="Did you call the doctor?">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">5. "I going to present next week."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="l3_e5" data-answer="I&#x27;m going to present next week.">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">6. "I think sales will increases."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="l3_e6" data-answer="I think sales will increase.">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">7. "We going to launch a new product."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="l3_e7" data-answer="We are going to launch a new product.">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">8. "He seed three doctors yesterday."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="l3_e8" data-answer="He saw three doctors yesterday.">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">9. "Will you helps me tomorrow?"</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="l3_e9" data-answer="Will you help me tomorrow?">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">10. "They isn&#x27;t going to attend."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="l3_e10" data-answer="They aren&#x27;t going to attend.">
+      </div>
+</div><div class="check-row">
+      <button class="btn-reveal" onclick="toggleKey('l3_error_key')">Show answers</button>
+    </div><div class="answer-key" id="l3_error_key"><p class="answer-key-title">✓ Answer key</p><ol><li>I visited the clinic yesterday.</li><li>She went to the meeting last week.</li><li>We didn&#x27;t go to the conference.</li><li>Did you call the doctor?</li><li>I&#x27;m going to present next week.</li><li>I think sales will increase.</li><li>We are going to launch a new product.</li><li>He saw three doctors yesterday.</li><li>Will you help me tomorrow?</li><li>They aren&#x27;t going to attend.</li></ol></div></div>
+<div class="sec-head">
+    <div class="sec-num">4</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Word Order</p>
+      <p class="sec-sub">Rearrange the words to make correct sentences</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Put the words in the correct order. Write the complete sentence.</p><div class="wo-list">
+<div class="wo-item">
+        <p class="wo-jumbled">1. <span>yesterday</span><span>visited</span><span>client</span><span>I</span><span>a</span></p>
+        <input class="wo-input" data-key="l3_w1" data-answer="I visited a client yesterday.">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">2. <span>week</span><span>went</span><span>last</span><span>She</span><span>conference</span><span>the</span><span>to</span></p>
+        <input class="wo-input" data-key="l3_w2" data-answer="She went to the conference last week.">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">3. <span>meetings</span><span>have</span><span>We</span><span>last</span><span>didn&#x27;t</span><span>Friday</span></p>
+        <input class="wo-input" data-key="l3_w3" data-answer="We didn&#x27;t have meetings last Friday.">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">4. <span>doctor</span><span>call</span><span>you</span><span>yesterday</span><span>Did</span><span>the</span><span>?</span></p>
+        <input class="wo-input" data-key="l3_w4" data-answer="Did you call the doctor yesterday?">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">5. <span>present</span><span>going</span><span>I&#x27;m</span><span>to</span><span>week</span><span>next</span></p>
+        <input class="wo-input" data-key="l3_w5" data-answer="I&#x27;m going to present next week.">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">6. <span>increase</span><span>will</span><span>think</span><span>sales</span><span>I</span></p>
+        <input class="wo-input" data-key="l3_w6" data-answer="I think sales will increase.">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">7. <span>launch</span><span>going</span><span>We</span><span>product</span><span>a</span><span>are</span><span>to</span><span>new</span></p>
+        <input class="wo-input" data-key="l3_w7" data-answer="We are going to launch a new product.">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">8. <span>Tuesday</span><span>saw</span><span>doctors</span><span>He</span><span>three</span><span>last</span></p>
+        <input class="wo-input" data-key="l3_w8" data-answer="He saw three doctors last Tuesday.">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">9. <span>tomorrow</span><span>help</span><span>you</span><span>Will</span><span>me</span><span>?</span></p>
+        <input class="wo-input" data-key="l3_w9" data-answer="Will you help me tomorrow?">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">10. <span>attend</span><span>going</span><span>aren&#x27;t</span><span>They</span><span>to</span><span>tomorrow</span></p>
+        <input class="wo-input" data-key="l3_w10" data-answer="They aren&#x27;t going to attend tomorrow.">
+      </div>
+</div><div class="check-row">
+      <button class="btn-reveal" onclick="toggleKey('l3_word_key')">Show answers</button>
+    </div><div class="answer-key" id="l3_word_key"><p class="answer-key-title">✓ Answer key</p><ol><li>I visited a client yesterday.</li><li>She went to the conference last week.</li><li>We didn&#x27;t have meetings last Friday.</li><li>Did you call the doctor yesterday?</li><li>I&#x27;m going to present next week.</li><li>I think sales will increase.</li><li>We are going to launch a new product.</li><li>He saw three doctors last Tuesday.</li><li>Will you help me tomorrow?</li><li>They aren&#x27;t going to attend tomorrow.</li></ol></div></div>
+<div class="sec-head">
+    <div class="sec-num">5</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Build the Dialogue</p>
+      <p class="sec-sub">Put the sentences in order to complete a workplace conversation</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Number the sentences 1-10 to create a logical dialogue.</p><div class="dialogue-box"><p class="dialogue-label">Context: Zafer talks to his manager about last week&#x27;s visits and next week&#x27;s plans.</p></div><div class="so-list">
+<div class="so-sentence"><span class="so-letter">A</span><span style="flex:1">Good morning, how was last week?</span>
+        <select class="so-select" data-key="l3_sA" data-answer="1"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">B</span><span style="flex:1">It was good, I visited five clients.</span>
+        <select class="so-select" data-key="l3_sB" data-answer="2"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">C</span><span style="flex:1">Great, did you sell the new product?</span>
+        <select class="so-select" data-key="l3_sC" data-answer="3"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">D</span><span style="flex:1">Yes, two clinics ordered it already.</span>
+        <select class="so-select" data-key="l3_sD" data-answer="4"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">E</span><span style="flex:1">Excellent. What are your plans for next week?</span>
+        <select class="so-select" data-key="l3_sE" data-answer="5"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">F</span><span style="flex:1">I&#x27;m going to visit three more hospitals.</span>
+        <select class="so-select" data-key="l3_sF" data-answer="6"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">G</span><span style="flex:1">Will you present the new brochure too?</span>
+        <select class="so-select" data-key="l3_sG" data-answer="7"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">H</span><span style="flex:1">Yes, I&#x27;ll show it at every meeting.</span>
+        <select class="so-select" data-key="l3_sH" data-answer="8"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">I</span><span style="flex:1">I think this will be a good month.</span>
+        <select class="so-select" data-key="l3_sI" data-answer="9"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">J</span><span style="flex:1">Me too, let&#x27;s talk again on Friday.</span>
+        <select class="so-select" data-key="l3_sJ" data-answer="10"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+</div><div class="check-row">
+      <button class="btn-check" onclick="checkSentOrder('l3_sorder')">Check order</button>
+      <button class="btn-reveal" onclick="toggleKey('l3_sorder_key')">Show answers</button>
+      <span class="score-badge" id="l3_sorder_score"></span>
+    </div><div class="answer-key" id="l3_sorder_key"><p class="answer-key-title">✓ Correct order</p><p style="font-size:13px;color:var(--ink-mid);">A (1) → B (2) → C (3) → D (4) → E (5) → F (6) → G (7) → H (8) → I (9) → J (10)</p></div></div>
+<div class="sec-head">
+    <div class="sec-num">6</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Reading</p>
+      <p class="sec-sub">Read the passage and answer the comprehension questions</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Read the passage below carefully. Then answer the questions in full English sentences.</p><div class="reading-passage"><p>Last month, Zafer visited eight clinics and two hospitals. He didn&#x27;t have any problems with deliveries, and most of his clients ordered new products. He also went to a medical conference in Ankara, where he met several new doctors.</p><p>Next month, Zafer is going to visit even more clients. He is going to launch a new product at three hospitals, and he will present it at a big conference too. His manager thinks sales will increase because the new product is very popular.</p><p>Zafer usually plans his visits one week in advance. He always checks last month&#x27;s results before he decides what he is going to do next.</p></div><div class="reading-q-list">
+<div class="reading-q">
+        <p class="reading-q-text">1. How many clinics did Zafer visit last month?</p>
+        <input class="reading-q-input" data-key="l3_r1">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">2. Did he have problems with deliveries?</p>
+        <input class="reading-q-input" data-key="l3_r2">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">3. What did most of his clients do?</p>
+        <input class="reading-q-input" data-key="l3_r3">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">4. Where did he go for a conference?</p>
+        <input class="reading-q-input" data-key="l3_r4">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">5. What is Zafer going to do next month?</p>
+        <input class="reading-q-input" data-key="l3_r5">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">6. Where is he going to launch the new product?</p>
+        <input class="reading-q-input" data-key="l3_r6">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">7. What does his manager think will happen to sales?</p>
+        <input class="reading-q-input" data-key="l3_r7">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">8. How far in advance does Zafer usually plan his visits?</p>
+        <input class="reading-q-input" data-key="l3_r8">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">9. What does he always check before planning?</p>
+        <input class="reading-q-input" data-key="l3_r9">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">10. Find one past simple and one &#x27;going to&#x27; sentence in the text.</p>
+        <input class="reading-q-input" data-key="l3_r10">
+      </div>
+</div><div class="check-row">
+      <button class="btn-reveal" onclick="toggleKey('l3_read_key')">Show suggested answers</button>
+    </div><div class="answer-key" id="l3_read_key"><p class="answer-key-title">✓ Suggested answers</p><ol><li>He visited eight clinics.</li><li>No, he didn&#x27;t have any problems.</li><li>Most of them ordered new products.</li><li>He went to a conference in Ankara.</li><li>He is going to visit even more clients.</li><li>He is going to launch it at three hospitals.</li><li>His manager thinks sales will increase.</li><li>One week in advance.</li><li>He checks last month&#x27;s results.</li><li>e.g. &#x27;Zafer visited eight clinics.&#x27; / &#x27;He is going to visit even more clients.&#x27;</li></ol></div></div>
+<div class="sec-head">
+    <div class="sec-num">7</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Discussion</p>
+      <p class="sec-sub">Speak for 30-60 seconds on each topic</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Discuss these questions with your teacher. Try to use past simple, going to, and will naturally.</p><div class="disc-list">
+<div class="disc-q">What did you do at work last week?</div>
+<div class="disc-q">Did you visit any new clients recently? Tell me about it.</div>
+<div class="disc-q">What are your plans for next week?</div>
+<div class="disc-q">Do you think your sales will increase or decrease this month? Why?</div>
+<div class="disc-q">What is your company going to launch soon, if anything?</div>
+<div class="disc-q">Tell me about a conference or event you went to in the past.</div>
+<div class="disc-q">What will you do tomorrow morning?</div>
+<div class="disc-q">Did anything unexpected happen at work last month?</div>
+<div class="disc-q">How do you usually plan your week?</div>
+<div class="disc-q">What are you going to do this weekend?</div>
+</div></div>
+<div class="sec-head">
+    <div class="sec-num">8</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Writing</p>
+      <p class="sec-sub">Practice writing about your past week and future plans</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Choose at least 4 prompts and write 1-3 sentences for each.</p><div class="writing-prompts">
+<div class="writing-prompt"><strong>1.</strong> Write two sentences about what you did at work last week.<textarea class="writing-textarea" data-key="l3_write1" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>2.</strong> Write a sentence about a client visit that happened in the past.<textarea class="writing-textarea" data-key="l3_write2" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>3.</strong> Write two sentences about your plans for next week using &#x27;going to&#x27;.<textarea class="writing-textarea" data-key="l3_write3" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>4.</strong> Write a prediction about your sales this month using &#x27;will&#x27;.<textarea class="writing-textarea" data-key="l3_write4" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>5.</strong> Write a sentence about something your company is going to launch.<textarea class="writing-textarea" data-key="l3_write5" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>6.</strong> Describe a past event (a conference, a trip) in 2-3 sentences.<textarea class="writing-textarea" data-key="l3_write6" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>7.</strong> Write a promise using &#x27;will&#x27; (e.g. I will send...).<textarea class="writing-textarea" data-key="l3_write7" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>8.</strong> Write a question asking a colleague about their plans.<textarea class="writing-textarea" data-key="l3_write8" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>9.</strong> Write a negative past simple sentence about last month.<textarea class="writing-textarea" data-key="l3_write9" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>10.</strong> Write a short paragraph (3-4 sentences) about last month and next month.<textarea class="writing-textarea" data-key="l3_write10" placeholder="Write your answer here..."></textarea></div>
+</div></div>
+</div>
+<div class="save-bar">
+    <span class="save-status" id="save-status">Not saved yet</span>
+    <div class="save-actions">
+      <button class="btn-reset" onclick="resetAll()">Reset all</button>
+      <button class="btn-save" onclick="saveAll()">Save progress</button>
+    </div>
+  </div>
+<script>
+const STORAGE_KEY = 'zafer_l3_past_future';
+
+function toggleKey(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+function checkFill(group) {
+  const inputs = document.querySelectorAll('.fill-input[data-key^="' + group.split('_')[0] + '_f"]');
+  let correct = 0;
+  inputs.forEach(inp => {
+    const ans = (inp.dataset.answer || '').trim().toLowerCase();
+    const val = (inp.value || '').trim().toLowerCase();
+    inp.classList.remove('correct','wrong');
+    if (val && val === ans) { inp.classList.add('correct'); correct++; }
+    else if (val) inp.classList.add('wrong');
+  });
+  showScore(group.split('_')[0] + '_fill_score', correct, inputs.length);
+  updateProgress();
+}
+function checkMatch(group) {
+  const prefix = group.split('_')[0];
+  const selects = document.querySelectorAll('.match-select[data-key^="' + prefix + '_m"]');
+  let correct = 0;
+  selects.forEach(sel => {
+    const ans = sel.dataset.answer;
+    sel.classList.remove('correct','wrong');
+    if (sel.value && sel.value === ans) { sel.classList.add('correct'); correct++; }
+    else if (sel.value) sel.classList.add('wrong');
+  });
+  showScore(prefix + '_match_score', correct, selects.length);
+  updateProgress();
+}
+function checkSentOrder(group) {
+  const prefix = group.split('_')[0];
+  const selects = document.querySelectorAll('.so-select[data-key^="' + prefix + '_s"]');
+  let correct = 0;
+  selects.forEach(sel => {
+    const ans = sel.dataset.answer;
+    sel.classList.remove('correct','wrong');
+    if (sel.value && sel.value === ans) { sel.classList.add('correct'); correct++; }
+    else if (sel.value) sel.classList.add('wrong');
+  });
+  showScore(prefix + '_sorder_score', correct, selects.length);
+  updateProgress();
+}
+function showScore(id, correct, total) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const pct = Math.round((correct / total) * 100);
+  el.textContent = correct + '/' + total + ' correct (' + pct + '%)';
+  el.className = 'score-badge ' + (pct >= 80 ? 'good' : pct >= 50 ? 'ok' : 'low');
+}
+function updateProgress() {
+  const checks = [
+    () => [...document.querySelectorAll('.fill-input')].some(i => i.value.trim()),
+    () => [...document.querySelectorAll('.match-select')].some(i => i.value.trim()),
+    () => [...document.querySelectorAll('.error-input')].some(i => i.value.trim()),
+    () => [...document.querySelectorAll('.wo-input')].some(i => i.value.trim()),
+    () => [...document.querySelectorAll('.so-select')].some(i => i.value.trim()),
+    () => [...document.querySelectorAll('.reading-q-input')].some(i => i.value.trim()),
+    () => true,
+    () => [...document.querySelectorAll('.writing-textarea')].some(i => i.value.trim().length > 20),
+  ];
+  const done = checks.filter(fn => fn()).length;
+  const pct = Math.round((done / 8) * 100);
+  const bar = document.getElementById('prog-bar');
+  if (bar) bar.style.width = pct + '%';
+  const pctEl = document.getElementById('prog-pct');
+  if (pctEl) pctEl.textContent = pct + '%';
+  const txt = document.getElementById('prog-text');
+  if (txt) txt.textContent = 'Progress — ' + done + ' of 8 sections started';
+}
+function getAllData() {
+  const data = {};
+  document.querySelectorAll('[data-key]').forEach(el => {
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') data[el.dataset.key] = el.value;
+    else if (el.tagName === 'SELECT') data[el.dataset.key] = el.value;
+  });
+  return data;
+}
+function saveAll(silent) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(getAllData()));
+  if (!silent) {
+    const n = new Date();
+    const s = document.getElementById('save-status');
+    if (s) s.textContent = 'Saved at ' + n.getHours().toString().padStart(2,'0') + ':' + n.getMinutes().toString().padStart(2,'0');
+  }
+  updateProgress();
+}
+function loadAll() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return;
+  const data = JSON.parse(raw);
+  document.querySelectorAll('[data-key]').forEach(el => {
+    if ((el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') && data[el.dataset.key] !== undefined) {
+      el.value = data[el.dataset.key];
+    }
+  });
+  updateProgress();
+}
+function resetAll() {
+  if (!confirm('Reset all answers? This cannot be undone.')) return;
+  document.querySelectorAll('[data-key]').forEach(el => {
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.value = '';
+    else if (el.tagName === 'SELECT') el.value = '';
+  });
+  document.querySelectorAll('.fill-input,.match-select,.so-select,.wo-input,.error-input').forEach(el => {
+    el.classList.remove('correct','wrong');
+  });
+  localStorage.removeItem(STORAGE_KEY);
+  const s = document.getElementById('save-status');
+  if (s) s.textContent = 'Reset — all answers cleared';
+  updateProgress();
+}
+document.addEventListener('input', () => saveAll(true));
+document.addEventListener('change', () => saveAll(true));
+window.addEventListener('load', () => { loadAll(); updateProgress(); });
+
+</script>
+</body>
+</html>

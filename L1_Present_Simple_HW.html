@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homework 1 — Present Simple | Zafer&#x27;s A1-A2 Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:         #1a2230;
+  --ink-mid:     #455066;
+  --ink-light:   #8b96aa;
+  --paper:       #f7f8fa;
+  --paper-mid:   #edeff3;
+  --white:       #ffffff;
+  --border:      #dde1e8;
+  --gold:        #c49a3c;
+  --gold-d:      #8a6518;
+  --gold-light:  #faf5e4;
+  --gold-mid:    #e8d49a;
+  --terra:       #c0603a;
+  --terra-d:     #8f3f20;
+  --terra-light: #fdf0ea;
+  --terra-mid:   #e8c4b4;
+  --sage:        #5e7a52;
+  --sage-d:      #3d5433;
+  --sage-light:  #eaf2e4;
+  --sage-mid:    #b8cead;
+  --blue:        #3a6fa8;
+  --blue-d:      #1e4a7a;
+  --blue-light:  #e8f0fb;
+  --blue-mid:    #b8cef0;
+  --plum:        #7a4a8a;
+  --plum-light:  #f3edf7;
+  --plum-mid:    #d4b8e0;
+  --accent:      #2e6fa8;
+  --accent-light:#e8f0fb;
+  --accent-mid:  #b8cef0;
+  --radius:      10px;
+  --shadow:      0 2px 14px rgba(26,34,48,0.07);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Source Serif 4', Georgia, serif; background: var(--paper); color: var(--ink); min-height: 100vh; padding-bottom: 6rem; }
+
+.hero { background: var(--ink); color: var(--paper); padding: 3rem 2rem 2.4rem; position: relative; overflow: hidden; }
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 55% 90% at 90% 40%, rgba(196,154,60,0.13) 0%, transparent 65%),
+    repeating-linear-gradient(-55deg, transparent, transparent 20px, rgba(46,111,168,0.05) 20px, rgba(46,111,168,0.05) 21px);
+}
+.hero-inner { max-width: 860px; margin: 0 auto; position: relative; }
+.series-label { font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 5vw, 2.9rem); font-weight: 700; line-height: 1.15; margin-bottom: 0.5rem; }
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-sub { font-size: 14px; color: rgba(250,248,244,0.65); max-width: 520px; line-height: 1.7; margin-bottom: 1.4rem; }
+.hero-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-pill { font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; padding: 4px 13px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.15); color: rgba(250,248,244,0.75); }
+
+.grammar-banner { background: var(--gold-light); border-bottom: 2px solid var(--gold-mid); padding: 1.5rem 2rem; }
+.gb-inner { max-width: 860px; margin: 0 auto; }
+.gb-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold-d); margin-bottom: 1rem; display: flex; align-items: center; gap: 7px; }
+.gb-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.gb-card { background: var(--white); border: 1px solid var(--gold-mid); border-radius: 10px; padding: 13px 15px; }
+.gb-card-title { font-size: 13px; font-weight: 700; color: var(--gold-d); margin-bottom: 4px; }
+.gb-card-form { font-size: 11.5px; font-family: monospace; background: var(--gold-light); color: var(--gold-d); border-radius: 4px; padding: 2px 8px; display: inline-block; margin-bottom: 6px; }
+.gb-card-use { font-size: 12px; color: var(--ink-mid); margin-bottom: 5px; line-height: 1.5; }
+.gb-card-ex { font-size: 12px; font-style: italic; color: var(--ink-light); line-height: 1.6; }
+.gb-card-ex::before { content: '\2192 '; font-style: normal; }
+
+.progress-wrap { max-width: 860px; margin: 1.8rem auto 0; padding: 0 1.4rem; }
+.progress-label { font-size: 11.5px; color: var(--ink-light); display: flex; justify-content: space-between; margin-bottom: 5px; }
+.progress-bar-outer { height: 5px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.progress-bar-inner { height: 100%; border-radius: 99px; transition: width 0.4s ease; background: var(--accent); }
+
+.main { max-width: 860px; margin: 0 auto; padding: 0 1.4rem; }
+
+.sec-head { display: flex; align-items: center; gap: 13px; margin: 2.4rem 0 1.1rem; }
+.sec-num { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--white); flex-shrink: 0; background: var(--accent); }
+.sec-title-wrap {}
+.sec-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; line-height: 1.2; }
+.sec-sub { font-size: 12px; color: var(--ink-light); margin-top: 2px; }
+.sec-divider { flex: 1; height: 1px; background: var(--border); margin-left: 6px; }
+
+.card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; margin-bottom: 14px; box-shadow: var(--shadow); }
+.card-tag { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-bottom: 12px; background: var(--accent-light); color: var(--accent); }
+.card-instruction { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 4px; line-height: 1.5; }
+.card-note { font-size: 12.5px; color: var(--ink-light); font-style: italic; margin-bottom: 14px; line-height: 1.5; }
+
+.word-bank { background: var(--gold-light); border: 1px solid var(--gold-mid); border-radius: 8px; padding: 12px 14px; margin-bottom: 16px; }
+.wb-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-d); margin-bottom: 8px; }
+.wb-words { display: flex; flex-wrap: wrap; gap: 7px; }
+.wb-word { font-size: 13px; background: var(--white); border: 1px solid var(--gold-mid); color: #6b4c0a; padding: 3px 12px; border-radius: 20px; font-style: italic; }
+
+.fill-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.fill-item { display: flex; align-items: baseline; gap: 9px; }
+.fill-num { font-size: 12px; font-weight: 700; color: var(--ink-light); min-width: 22px; flex-shrink: 0; }
+.fill-text { font-size: 14px; line-height: 1.9; color: var(--ink); flex: 1; }
+.fill-input { display: inline-block; border: none; border-bottom: 1.5px solid var(--terra-mid); background: transparent; font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink); min-width: 130px; padding: 0 4px; outline: none; transition: border-color 0.15s; }
+.fill-input:focus { border-color: var(--terra); }
+.fill-input.correct { border-color: var(--sage); background: var(--sage-light); border-radius: 4px 4px 0 0; }
+.fill-input.wrong { border-color: var(--terra); background: var(--terra-light); border-radius: 4px 4px 0 0; }
+
+.match-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.match-col-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-light); margin-bottom: 10px; }
+.match-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.match-key { font-size: 12px; font-weight: 700; color: var(--white); background: var(--sage); border-radius: 50%; width: 23px; height: 23px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.match-letter { font-size: 12px; font-weight: 700; color: var(--white); background: var(--terra); border-radius: 50%; width: 23px; height: 23px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.match-text { font-size: 13.5px; color: var(--ink); line-height: 1.45; }
+.match-select { font-family: 'Source Serif 4', serif; font-size: 13px; border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; background: var(--paper-mid); color: var(--ink); outline: none; cursor: pointer; transition: border 0.15s; }
+.match-select:focus { border-color: var(--accent); }
+.match-select.correct { border-color: var(--sage); background: var(--sage-light); }
+.match-select.wrong { border-color: var(--terra); background: var(--terra-light); }
+.match-answer-row { display:flex; gap:10px; align-items:center; }
+.match-answer-row .mnum { font-size:13px; min-width:20px; font-weight:700; color:var(--ink-light); }
+
+.error-list { display: flex; flex-direction: column; gap: 13px; }
+.error-item { background: var(--paper-mid); border-radius: 8px; padding: 13px 15px; border-left: 3px solid var(--terra-mid); }
+.error-sentence { font-size: 14px; font-style: italic; color: var(--ink-mid); margin-bottom: 8px; line-height: 1.6; }
+.error-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-light); margin-bottom: 5px; }
+.error-input { width: 100%; border: none; border-bottom: 1.5px solid var(--terra-mid); background: transparent; font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink); padding: 3px 4px; outline: none; transition: border-color 0.15s; }
+.error-input:focus { border-color: var(--terra); }
+.error-input.correct { border-color: var(--sage); background: var(--sage-light); }
+.error-input.wrong { border-color: var(--terra); background: var(--terra-light); }
+
+.wo-list { display: flex; flex-direction: column; gap: 13px; }
+.wo-item { background: var(--paper-mid); border-radius: 8px; padding: 13px 15px; }
+.wo-jumbled { font-size: 13px; font-style: italic; color: var(--ink-light); margin-bottom: 8px; line-height: 1.6; }
+.wo-jumbled span { background: var(--white); border: 1px solid var(--border); border-radius: 4px; padding: 1px 7px; margin-right: 4px; display: inline-block; color: var(--ink-mid); }
+.wo-input { width: 100%; border: none; border-bottom: 1.5px solid var(--blue-mid); background: transparent; font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink); padding: 3px 4px; outline: none; transition: border-color 0.15s; }
+.wo-input:focus { border-color: var(--blue); }
+.wo-input.correct { border-color: var(--sage); background: var(--sage-light); }
+.wo-input.wrong { border-color: var(--terra); background: var(--terra-light); }
+
+.dialogue-box { background: var(--paper-mid); border-radius: 8px; padding: 14px 16px; margin-bottom: 14px; }
+.dialogue-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-light); margin-bottom: 10px; }
+.so-list { display: flex; flex-direction: column; gap: 8px; }
+.so-sentence { background: var(--white); border: 1px solid var(--border); border-radius: 7px; padding: 10px 14px; font-size: 13.5px; font-style: italic; color: var(--ink-mid); display: flex; align-items: center; gap: 10px; }
+.so-sentence .so-letter { font-size: 12px; font-weight: 700; color: var(--white); background: var(--plum); border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-style: normal; }
+.so-select { font-family: 'Source Serif 4', serif; font-size: 13px; border: 1px solid var(--border); border-radius: 6px; padding: 5px 8px; background: var(--paper-mid); color: var(--ink); outline: none; cursor: pointer; }
+.so-select:focus { border-color: var(--plum); }
+.so-select.correct { border-color: var(--sage); background: var(--sage-light); }
+.so-select.wrong { border-color: var(--terra); background: var(--terra-light); }
+
+.reading-passage { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 20px 22px; margin-bottom: 16px; line-height: 1.85; font-size: 14px; color: var(--ink); }
+.reading-passage p + p { margin-top: 0.9em; }
+.reading-q-list { display: flex; flex-direction: column; gap: 12px; }
+.reading-q { background: var(--paper-mid); border-radius: 8px; padding: 13px 15px; }
+.reading-q-text { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+.reading-q-input { width: 100%; border: none; border-bottom: 1.5px solid var(--gold-mid); background: transparent; font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink); padding: 3px 4px; outline: none; transition: border-color 0.15s; }
+.reading-q-input:focus { border-color: var(--gold-d); }
+
+.disc-list { display: flex; flex-direction: column; gap: 9px; }
+.disc-q { background: var(--paper-mid); border: 0.5px solid var(--border); border-radius: 8px; padding: 11px 14px; font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+.disc-q::before { content: '\1F4AC '; }
+
+.writing-prompts { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+.writing-prompt { background: var(--paper-mid); border-left: 3px solid var(--sage-mid); border-radius: 0 8px 8px 0; padding: 11px 14px; font-size: 13.5px; line-height: 1.55; }
+.writing-prompt strong { color: var(--sage-d); }
+.writing-textarea { width: 100%; min-height: 90px; border: 1.5px solid var(--border); border-radius: 8px; background: var(--white); font-family: 'Source Serif 4', serif; font-size: 14px; color: var(--ink); padding: 12px 14px; resize: vertical; outline: none; line-height: 1.7; transition: border-color 0.15s; margin-top: 6px; }
+.writing-textarea:focus { border-color: var(--sage); }
+
+.check-row { display: flex; align-items: center; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+.btn-check { font-family: 'Source Serif 4', serif; font-size: 13px; font-weight: 600; padding: 8px 22px; border-radius: 99px; border: none; cursor: pointer; transition: all 0.18s; background: var(--accent); color: var(--white); }
+.btn-check:hover { background: var(--blue-d); }
+.btn-reveal { font-family: 'Source Serif 4', serif; font-size: 12.5px; padding: 7px 16px; border-radius: 99px; border: 1.5px solid var(--border); background: transparent; color: var(--ink-light); cursor: pointer; transition: all 0.18s; }
+.btn-reveal:hover { border-color: var(--gold); color: var(--gold-d); }
+.score-badge { font-size: 12px; font-weight: 700; padding: 5px 13px; border-radius: 20px; background: var(--paper-mid); color: var(--ink-mid); }
+.score-badge.good { background: var(--sage-light); color: var(--sage-d); }
+.score-badge.ok { background: var(--gold-light); color: var(--gold-d); }
+.score-badge.low { background: var(--terra-light); color: var(--terra-d); }
+.answer-key { background: var(--sage-light); border: 1px solid var(--sage-mid); border-radius: 8px; padding: 13px 15px; margin-top: 12px; display: none; }
+.answer-key.open { display: block; }
+.answer-key-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--sage-d); margin-bottom: 8px; }
+.answer-key ol { padding-left: 18px; }
+.answer-key ol li { font-size: 13px; color: var(--ink-mid); padding: 2px 0; }
+
+.save-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--white); border-top: 1px solid var(--border); padding: 12px 1.4rem; display: flex; align-items: center; justify-content: space-between; max-width: 100%; z-index: 100; box-shadow: 0 -4px 20px rgba(30,27,22,0.08); }
+.save-status { font-size: 12px; color: var(--ink-light); }
+.save-actions { display: flex; gap: 8px; }
+.btn-save { font-family: 'Source Serif 4', serif; font-size: 13px; font-weight: 600; padding: 7px 20px; border-radius: 99px; border: none; background: var(--ink); color: var(--white); cursor: pointer; transition: background 0.18s; }
+.btn-save:hover { background: var(--terra); }
+.btn-reset { font-family: 'Source Serif 4', serif; font-size: 13px; padding: 7px 16px; border-radius: 99px; border: 1.5px solid var(--border); background: transparent; color: var(--ink-light); cursor: pointer; transition: all 0.18s; }
+.btn-reset:hover { border-color: var(--terra); color: var(--terra); }
+
+@media (max-width: 600px) {
+  .match-grid { grid-template-columns: 1fr; }
+  .hero { padding: 2rem 1.2rem 1.8rem; }
+  .grammar-banner { padding: 1.2rem 1.2rem; }
+}
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="hero-inner">
+    <p class="series-label">A1–A2 Grammar Review Series · Homework 1 of 4</p>
+    <h1>Present <em>Simple</em> — Practice</h1>
+    <p class="hero-sub">Review Present Simple on your own — real sentences about your job and routine.</p>
+    <div class="hero-pills"><span class="hero-pill">A1–A2</span><span class="hero-pill">~45–60 minutes</span><span class="hero-pill">Medical Sales English</span><span class="hero-pill">8 sections</span></div>
+  </div>
+</div>
+<div class="grammar-banner"><div class="gb-inner">
+<p class="gb-label">📐 Grammar at a glance</p>
+<div class="gb-grid">
+<div class="gb-card">
+          <p class="gb-card-title">Affirmative</p>
+          <p class="gb-card-form">Subject + verb(+s/es)</p>
+          <p class="gb-card-use">Facts, routines, habits, jobs.</p>
+          <p class="gb-card-ex">I visit clients every week. / He works in sales.</p>
+        </div>
+<div class="gb-card">
+          <p class="gb-card-title">Negative</p>
+          <p class="gb-card-form">don&#x27;t / doesn&#x27;t + verb</p>
+          <p class="gb-card-use">Things that are not true or don&#x27;t happen.</p>
+          <p class="gb-card-ex">I don&#x27;t work on Sundays. / She doesn&#x27;t call on Fridays.</p>
+        </div>
+<div class="gb-card">
+          <p class="gb-card-title">Question</p>
+          <p class="gb-card-form">Do/Does + subject + verb?</p>
+          <p class="gb-card-use">Asking about routines, habits, facts.</p>
+          <p class="gb-card-ex">Do you visit hospitals often? / Does he speak English?</p>
+        </div>
+</div></div></div>
+<div class="progress-wrap">
+    <p class="progress-label"><span id="prog-text">Progress — 0 of 8 sections started</span><span id="prog-pct">0%</span></p>
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="prog-bar" style="width:0%"></div></div>
+  </div>
+<div class="main">
+<div class="sec-head">
+    <div class="sec-num">1</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Fill in the Gaps</p>
+      <p class="sec-sub">Complete each sentence with the correct present simple form</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Complete the sentences with the correct present simple form of the verb in brackets.</p><p class="card-note">Remember: he/she/it needs -s or -es.</p><ul class="fill-list">
+<li class="fill-item">
+        <span class="fill-num">1.</span>
+        <span class="fill-text">I <input class="fill-input" data-key="hw1_f1"> (start) work at eight thirty every day.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">2.</span>
+        <span class="fill-text">She <input class="fill-input" data-key="hw1_f2"> (not / answer) her phone during meetings.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">3.</span>
+        <span class="fill-text"><input class="fill-input" data-key="hw1_f3"> he ___ (know) the new product well? (he / know)</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">4.</span>
+        <span class="fill-text">The clinic <input class="fill-input" data-key="hw1_f4"> (close) at six in the evening.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">5.</span>
+        <span class="fill-text">We <input class="fill-input" data-key="hw1_f5"> (not / sell) that item anymore.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">6.</span>
+        <span class="fill-text">My colleague <input class="fill-input" data-key="hw1_f6"> (travel) to Ankara every month.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">7.</span>
+        <span class="fill-text">I <input class="fill-input" data-key="hw1_f7"> (not / like) to be late for appointments.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">8.</span>
+        <span class="fill-text"><input class="fill-input" data-key="hw1_f8"> your team ___ (meet) every Monday? (your team / meet)</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">9.</span>
+        <span class="fill-text">He <input class="fill-input" data-key="hw1_f9"> (finish) work at five o&#x27;clock.</span>
+      </li>
+<li class="fill-item">
+        <span class="fill-num">10.</span>
+        <span class="fill-text">They <input class="fill-input" data-key="hw1_f10"> (not / have) samples this week.</span>
+      </li>
+</ul></div>
+<div class="sec-head">
+    <div class="sec-num">2</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Match</p>
+      <p class="sec-sub">Match each situation (1-10) with the sentence that fits it (A-J)</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Match each situation (1-10) with the sentence that best expresses it (A-J).</p><div class="match-grid"><div><p class="match-col-label">A</p><div class="match-item"><span class="match-key">1</span><span class="match-text">Talking about your work schedule</span></div><div class="match-item"><span class="match-key">2</span><span class="match-text">Describing a company policy</span></div><div class="match-item"><span class="match-key">3</span><span class="match-text">Saying you dislike something</span></div><div class="match-item"><span class="match-key">4</span><span class="match-text">Asking about a team routine</span></div><div class="match-item"><span class="match-key">5</span><span class="match-text">Describing a colleague&#x27;s travel habit</span></div><div class="match-item"><span class="match-key">6</span><span class="match-text">Talking about closing times</span></div><div class="match-item"><span class="match-key">7</span><span class="match-text">Saying something doesn&#x27;t happen</span></div><div class="match-item"><span class="match-key">8</span><span class="match-text">Asking about product knowledge</span></div><div class="match-item"><span class="match-key">9</span><span class="match-text">Talking about finishing work</span></div><div class="match-item"><span class="match-key">10</span><span class="match-text">Describing a stock situation</span></div></div><div><p class="match-col-label">B</p><div class="match-item"><span class="match-letter">A</span><span class="match-text">The clinic closes at six in the evening.</span></div><div class="match-item"><span class="match-letter">B</span><span class="match-text">I don&#x27;t like waiting for late replies.</span></div><div class="match-item"><span class="match-letter">C</span><span class="match-text">They don&#x27;t have any samples in stock this week.</span></div><div class="match-item"><span class="match-letter">D</span><span class="match-text">I start work at half past eight every morning.</span></div><div class="match-item"><span class="match-letter">E</span><span class="match-text">Does he know the new product details well?</span></div><div class="match-item"><span class="match-letter">F</span><span class="match-text">Does your team meet every Monday morning?</span></div><div class="match-item"><span class="match-letter">G</span><span class="match-text">Our company doesn&#x27;t allow late deliveries.</span></div><div class="match-item"><span class="match-letter">H</span><span class="match-text">He usually finishes work at five o&#x27;clock.</span></div><div class="match-item"><span class="match-letter">I</span><span class="match-text">We don&#x27;t sell that product anymore.</span></div><div class="match-item"><span class="match-letter">J</span><span class="match-text">My colleague travels to another city once a month.</span></div></div></div><div style="margin-top:14px; display:flex; flex-direction:column; gap:8px;">
+<div class="match-answer-row"><span class="mnum">1→</span>
+        <select class="match-select" data-key="hw1_m1"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">2→</span>
+        <select class="match-select" data-key="hw1_m2"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">3→</span>
+        <select class="match-select" data-key="hw1_m3"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">4→</span>
+        <select class="match-select" data-key="hw1_m4"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">5→</span>
+        <select class="match-select" data-key="hw1_m5"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">6→</span>
+        <select class="match-select" data-key="hw1_m6"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">7→</span>
+        <select class="match-select" data-key="hw1_m7"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">8→</span>
+        <select class="match-select" data-key="hw1_m8"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">9→</span>
+        <select class="match-select" data-key="hw1_m9"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+<div class="match-answer-row"><span class="mnum">10→</span>
+        <select class="match-select" data-key="hw1_m10"><option value="">—</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>H</option><option>I</option><option>J</option></select></div>
+</div></div>
+<div class="sec-head">
+    <div class="sec-num">3</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Error Correction</p>
+      <p class="sec-sub">Find and correct the present simple mistake in each sentence</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Each sentence contains one present simple mistake. Write the corrected sentence.</p><div class="error-list">
+<div class="error-item">
+        <p class="error-sentence">1. "She don&#x27;t answer emails at night."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="hw1_e1">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">2. "Do he know the price list?"</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="hw1_e2">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">3. "I doesn&#x27;t like short meetings."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="hw1_e3">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">4. "The office close at five."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="hw1_e4">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">5. "We has a meeting every Tuesday."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="hw1_e5">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">6. "Does you travel a lot for work?"</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="hw1_e6">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">7. "My colleague don&#x27;t drive to work."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="hw1_e7">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">8. "They doesn&#x27;t need more brochures."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="hw1_e8">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">9. "He finish work at six every day."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="hw1_e9">
+      </div>
+<div class="error-item">
+        <p class="error-sentence">10. "I no have samples today."</p>
+        <p class="error-label">Corrected sentence:</p>
+        <input class="error-input" data-key="hw1_e10">
+      </div>
+</div></div>
+<div class="sec-head">
+    <div class="sec-num">4</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Word Order</p>
+      <p class="sec-sub">Rearrange the words to make correct sentences</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Put the words in the correct order. Write the complete sentence.</p><div class="wo-list">
+<div class="wo-item">
+        <p class="wo-jumbled">1. <span>eight</span><span>start</span><span>I</span><span>thirty</span><span>at</span><span>work</span></p>
+        <input class="wo-input" data-key="hw1_w1">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">2. <span>answer</span><span>doesn&#x27;t</span><span>She</span><span>meetings</span><span>during</span><span>calls</span></p>
+        <input class="wo-input" data-key="hw1_w2">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">3. <span>team</span><span>meet</span><span>Monday</span><span>Does</span><span>your</span><span>every</span><span>?</span></p>
+        <input class="wo-input" data-key="hw1_w3">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">4. <span>closes</span><span>clinic</span><span>six</span><span>The</span><span>at</span></p>
+        <input class="wo-input" data-key="hw1_w4">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">5. <span>sell</span><span>don&#x27;t</span><span>product</span><span>We</span><span>that</span><span>anymore</span></p>
+        <input class="wo-input" data-key="hw1_w5">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">6. <span>travels</span><span>colleague</span><span>month</span><span>My</span><span>every</span></p>
+        <input class="wo-input" data-key="hw1_w6">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">7. <span>like</span><span>don&#x27;t</span><span>late</span><span>I</span><span>being</span></p>
+        <input class="wo-input" data-key="hw1_w7">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">8. <span>know</span><span>Does</span><span>product</span><span>the</span><span>he</span><span>well</span><span>?</span></p>
+        <input class="wo-input" data-key="hw1_w8">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">9. <span>finishes</span><span>five</span><span>He</span><span>at</span><span>work</span></p>
+        <input class="wo-input" data-key="hw1_w9">
+      </div>
+<div class="wo-item">
+        <p class="wo-jumbled">10. <span>have</span><span>don&#x27;t</span><span>samples</span><span>They</span><span>week</span><span>this</span></p>
+        <input class="wo-input" data-key="hw1_w10">
+      </div>
+</div></div>
+<div class="sec-head">
+    <div class="sec-num">5</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Build the Dialogue</p>
+      <p class="sec-sub">Put the sentences in order to complete a phone conversation</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Number the sentences 1-10 to create a logical dialogue.</p><div class="dialogue-box"><p class="dialogue-label">Context: Zafer calls a clinic to confirm tomorrow&#x27;s appointment.</p></div><div class="so-list">
+<div class="so-sentence"><span class="so-letter">A</span><span style="flex:1">Good afternoon, this is Zafer from MedLife.</span>
+        <select class="so-select" data-key="hw1_sA"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">B</span><span style="flex:1">Hello Zafer, how can I help you?</span>
+        <select class="so-select" data-key="hw1_sB"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">C</span><span style="flex:1">I&#x27;m calling to confirm our meeting tomorrow.</span>
+        <select class="so-select" data-key="hw1_sC"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">D</span><span style="flex:1">What time does it usually start?</span>
+        <select class="so-select" data-key="hw1_sD"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">E</span><span style="flex:1">It usually starts at ten in the morning.</span>
+        <select class="so-select" data-key="hw1_sE"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">F</span><span style="flex:1">Does the doctor have time at ten?</span>
+        <select class="so-select" data-key="hw1_sF"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">G</span><span style="flex:1">Yes, she doesn&#x27;t have any other meetings then.</span>
+        <select class="so-select" data-key="hw1_sG"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">H</span><span style="flex:1">Great, so I&#x27;ll see her at ten.</span>
+        <select class="so-select" data-key="hw1_sH"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">I</span><span style="flex:1">Perfect, we&#x27;ll see you tomorrow.</span>
+        <select class="so-select" data-key="hw1_sI"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+<div class="so-sentence"><span class="so-letter">J</span><span style="flex:1">Thank you, have a nice day!</span>
+        <select class="so-select" data-key="hw1_sJ"><option value="">—</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div>
+</div></div>
+<div class="sec-head">
+    <div class="sec-num">6</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Reading</p>
+      <p class="sec-sub">Read the passage and answer the comprehension questions</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Read the passage below carefully. Then answer the questions in full English sentences.</p><div class="reading-passage"><p>Elif works in the marketing department of a medical company. She usually arrives at the office at nine o&#x27;clock and checks the sales reports first. Every Tuesday, she has a meeting with the sales team to talk about new products.</p><p>Elif doesn&#x27;t travel very often, but she sometimes visits other offices when the company launches a new product. She always prepares a short presentation before these visits, so she never forgets important details.</p><p>Her company doesn&#x27;t sell directly to patients; it sells medicine and equipment to hospitals and clinics. Elif likes her job because she works with many different people and learns something new every week.</p></div><div class="reading-q-list">
+<div class="reading-q">
+        <p class="reading-q-text">1. Where does Elif work?</p>
+        <input class="reading-q-input" data-key="hw1_r1">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">2. What time does she usually arrive at the office?</p>
+        <input class="reading-q-input" data-key="hw1_r2">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">3. What does she check first every day?</p>
+        <input class="reading-q-input" data-key="hw1_r3">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">4. When does she have a meeting with the sales team?</p>
+        <input class="reading-q-input" data-key="hw1_r4">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">5. Does Elif travel often?</p>
+        <input class="reading-q-input" data-key="hw1_r5">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">6. What does she always do before a visit?</p>
+        <input class="reading-q-input" data-key="hw1_r6">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">7. Who does her company sell products to?</p>
+        <input class="reading-q-input" data-key="hw1_r7">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">8. Does the company sell directly to patients?</p>
+        <input class="reading-q-input" data-key="hw1_r8">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">9. Why does Elif like her job?</p>
+        <input class="reading-q-input" data-key="hw1_r9">
+      </div>
+<div class="reading-q">
+        <p class="reading-q-text">10. Find one negative present simple sentence in the text.</p>
+        <input class="reading-q-input" data-key="hw1_r10">
+      </div>
+</div></div>
+<div class="sec-head">
+    <div class="sec-num">7</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Discussion</p>
+      <p class="sec-sub">Prepare short spoken answers — review these with your teacher next lesson</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Think about these questions and prepare a short spoken answer for each.</p><div class="disc-list">
+<div class="disc-q">What time do you usually arrive at work?</div>
+<div class="disc-q">Do you check anything first thing every morning?</div>
+<div class="disc-q">How often do you have team meetings?</div>
+<div class="disc-q">Do you travel often for work? How often?</div>
+<div class="disc-q">What do you always do before an important visit?</div>
+<div class="disc-q">Does your company sell to businesses or to individual customers?</div>
+<div class="disc-q">What do you like most about your job?</div>
+<div class="disc-q">What don&#x27;t you like about early meetings?</div>
+<div class="disc-q">How do you usually confirm an appointment?</div>
+<div class="disc-q">What time do you usually finish work?</div>
+</div></div>
+<div class="sec-head">
+    <div class="sec-num">8</div>
+    <div class="sec-title-wrap">
+      <p class="sec-title">Writing</p>
+      <p class="sec-sub">Practice writing present simple sentences about your real work</p>
+    </div>
+    <div class="sec-divider"></div>
+  </div>
+<div class="card"><span class="card-tag">A1–A2</span><p class="card-instruction">Choose at least 4 prompts and write 1-3 sentences for each.</p><p class="card-note">Use present simple accurately — check your -s endings!</p><div class="writing-prompts">
+<div class="writing-prompt"><strong>1.</strong> Write two sentences about what time you start and finish work.<textarea class="writing-textarea" data-key="hw1_write1" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>2.</strong> Describe one thing you always do before a client meeting.<textarea class="writing-textarea" data-key="hw1_write2" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>3.</strong> Write a negative sentence about something you don&#x27;t do at work.<textarea class="writing-textarea" data-key="hw1_write3" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>4.</strong> Write a question you could ask a colleague about their routine.<textarea class="writing-textarea" data-key="hw1_write4" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>5.</strong> Describe how often your team has meetings.<textarea class="writing-textarea" data-key="hw1_write5" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>6.</strong> Write two sentences about who your company sells to.<textarea class="writing-textarea" data-key="hw1_write6" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>7.</strong> Describe something a colleague of yours usually does.<textarea class="writing-textarea" data-key="hw1_write7" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>8.</strong> Write one sentence about how you usually confirm an appointment.<textarea class="writing-textarea" data-key="hw1_write8" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>9.</strong> Write two sentences about your favorite part of the work day.<textarea class="writing-textarea" data-key="hw1_write9" placeholder="Write your answer here..."></textarea></div>
+<div class="writing-prompt"><strong>10.</strong> Write a short paragraph (3-4 sentences) describing a typical work day.<textarea class="writing-textarea" data-key="hw1_write10" placeholder="Write your answer here..."></textarea></div>
+</div></div>
+</div>
+<div class="save-bar">
+    <span class="save-status" id="save-status">Not saved yet</span>
+    <div class="save-actions">
+      <button class="btn-reset" onclick="resetAll()">Reset all</button>
+      <button class="btn-save" onclick="saveAll()">Save progress</button>
+    </div>
+  </div>
+<script>
+const STORAGE_KEY = 'zafer_hw1_present_simple';
+
+function toggleKey(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('open');
+}
+function checkFill(group) {
+  const inputs = document.querySelectorAll('.fill-input[data-key^="' + group.split('_')[0] + '_f"]');
+  let correct = 0;
+  inputs.forEach(inp => {
+    const ans = (inp.dataset.answer || '').trim().toLowerCase();
+    const val = (inp.value || '').trim().toLowerCase();
+    inp.classList.remove('correct','wrong');
+    if (val && val === ans) { inp.classList.add('correct'); correct++; }
+    else if (val) inp.classList.add('wrong');
+  });
+  showScore(group.split('_')[0] + '_fill_score', correct, inputs.length);
+  updateProgress();
+}
+function checkMatch(group) {
+  const prefix = group.split('_')[0];
+  const selects = document.querySelectorAll('.match-select[data-key^="' + prefix + '_m"]');
+  let correct = 0;
+  selects.forEach(sel => {
+    const ans = sel.dataset.answer;
+    sel.classList.remove('correct','wrong');
+    if (sel.value && sel.value === ans) { sel.classList.add('correct'); correct++; }
+    else if (sel.value) sel.classList.add('wrong');
+  });
+  showScore(prefix + '_match_score', correct, selects.length);
+  updateProgress();
+}
+function checkSentOrder(group) {
+  const prefix = group.split('_')[0];
+  const selects = document.querySelectorAll('.so-select[data-key^="' + prefix + '_s"]');
+  let correct = 0;
+  selects.forEach(sel => {
+    const ans = sel.dataset.answer;
+    sel.classList.remove('correct','wrong');
+    if (sel.value && sel.value === ans) { sel.classList.add('correct'); correct++; }
+    else if (sel.value) sel.classList.add('wrong');
+  });
+  showScore(prefix + '_sorder_score', correct, selects.length);
+  updateProgress();
+}
+function showScore(id, correct, total) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const pct = Math.round((correct / total) * 100);
+  el.textContent = correct + '/' + total + ' correct (' + pct + '%)';
+  el.className = 'score-badge ' + (pct >= 80 ? 'good' : pct >= 50 ? 'ok' : 'low');
+}
+function updateProgress() {
+  const checks = [
+    () => [...document.querySelectorAll('.fill-input')].some(i => i.value.trim()),
+    () => [...document.querySelectorAll('.match-select')].some(i => i.value.trim()),
+    () => [...document.querySelectorAll('.error-input')].some(i => i.value.trim()),
+    () => [...document.querySelectorAll('.wo-input')].some(i => i.value.trim()),
+    () => [...document.querySelectorAll('.so-select')].some(i => i.value.trim()),
+    () => [...document.querySelectorAll('.reading-q-input')].some(i => i.value.trim()),
+    () => true,
+    () => [...document.querySelectorAll('.writing-textarea')].some(i => i.value.trim().length > 20),
+  ];
+  const done = checks.filter(fn => fn()).length;
+  const pct = Math.round((done / 8) * 100);
+  const bar = document.getElementById('prog-bar');
+  if (bar) bar.style.width = pct + '%';
+  const pctEl = document.getElementById('prog-pct');
+  if (pctEl) pctEl.textContent = pct + '%';
+  const txt = document.getElementById('prog-text');
+  if (txt) txt.textContent = 'Progress — ' + done + ' of 8 sections started';
+}
+function getAllData() {
+  const data = {};
+  document.querySelectorAll('[data-key]').forEach(el => {
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') data[el.dataset.key] = el.value;
+    else if (el.tagName === 'SELECT') data[el.dataset.key] = el.value;
+  });
+  return data;
+}
+function saveAll(silent) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(getAllData()));
+  if (!silent) {
+    const n = new Date();
+    const s = document.getElementById('save-status');
+    if (s) s.textContent = 'Saved at ' + n.getHours().toString().padStart(2,'0') + ':' + n.getMinutes().toString().padStart(2,'0');
+  }
+  updateProgress();
+}
+function loadAll() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return;
+  const data = JSON.parse(raw);
+  document.querySelectorAll('[data-key]').forEach(el => {
+    if ((el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') && data[el.dataset.key] !== undefined) {
+      el.value = data[el.dataset.key];
+    }
+  });
+  updateProgress();
+}
+function resetAll() {
+  if (!confirm('Reset all answers? This cannot be undone.')) return;
+  document.querySelectorAll('[data-key]').forEach(el => {
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') el.value = '';
+    else if (el.tagName === 'SELECT') el.value = '';
+  });
+  document.querySelectorAll('.fill-input,.match-select,.so-select,.wo-input,.error-input').forEach(el => {
+    el.classList.remove('correct','wrong');
+  });
+  localStorage.removeItem(STORAGE_KEY);
+  const s = document.getElementById('save-status');
+  if (s) s.textContent = 'Reset — all answers cleared';
+  updateProgress();
+}
+document.addEventListener('input', () => saveAll(true));
+document.addEventListener('change', () => saveAll(true));
+window.addEventListener('load', () => { loadAll(); updateProgress(); });
+
+</script>
+</body>
+</html>
