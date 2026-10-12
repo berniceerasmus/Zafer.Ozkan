@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zafer Ozkan - Review Test (Lessons 1-4)</title>
+<style>
+:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--ink:#1a2230;--mid:#455066;--paper:#f7f8fa;--white:#fff;--line:#dde1e8;--gold:#c49a3c;--goldl:#faf5e4;--ok:#1f7a4d;--okb:#e6f4ec;--bad:#b3261e;--badb:#fdecea}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Georgia,'Times New Roman',serif}
+header{background:var(--white);border-bottom:3px solid var(--gold);padding:18px 16px}
+.wrap{max-width:860px;margin:0 auto;padding:0 12px}
+h1{margin:0;font-size:1.5rem}h2{font-size:1.15rem;margin:0 0 4px}
+.sub{color:var(--mid);font-size:.92rem}
+.tabs{display:flex;gap:8px;margin:14px 0}
+.tab{flex:1;padding:10px;border:1px solid var(--line);background:var(--white);border-radius:8px;font:inherit;font-weight:bold;cursor:pointer;color:var(--mid)}
+.tab.on{background:var(--gold);color:#fff;border-color:var(--gold)}
+.pane{display:none}.pane.on{display:block}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:14px 0}
+.q{padding:8px 0;border-top:1px solid var(--line)}.q:first-of-type{border-top:0}
+.tag{display:inline-block;font-size:.7rem;background:var(--goldl);color:#8a6518;border-radius:4px;padding:1px 6px;margin-left:6px}
+input[type=text]{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;width:100%;max-width:420px;background:#fff;color:var(--ink)}
+textarea{font:inherit;width:100%;min-height:80px;padding:8px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+label.opt{display:block;padding:3px 0;cursor:pointer}
+.good{background:var(--okb)!important;border-color:var(--ok)!important}.wrong{background:var(--badb)!important;border-color:var(--bad)!important}
+.hint{color:var(--bad);font-size:.85rem;margin-top:3px}
+button.go{background:var(--ink);color:#fff;border:0;border-radius:8px;padding:10px 18px;font:inherit;font-weight:bold;cursor:pointer}
+.score{font-size:1.2rem;font-weight:bold;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:.92rem}td,th{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}th{background:var(--goldl)}
+.scroll{overflow-x:auto}
+ul{margin:6px 0;padding-left:20px}
+.gram{background:var(--goldl);border-radius:8px;padding:8px 12px;font-size:.9rem}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="sub">A1-A2 Grammar Review Series &middot; Final Test (Lessons 1-4)</div>
+<h1>Review Test &mdash; Zafer Ozkan</h1>
+<div class="sub">Present Simple &middot; There is/are &amp; Places &middot; Past Simple vs Future &middot; Modal Verbs &middot; ~50 minutes &middot; 60 points</div>
+</div></header>
+<div class="wrap">
+<div class="tabs"><button class="tab on" data-p="stu">Student Test</button><button class="tab" data-p="tea">Teacher's Tab</button></div>
+
+<div id="stu" class="pane on">
+<div class="card gram"><b>Instructions / Talimatlar:</b> Do all 6 parts. Use English letters only. Punctuation matters in sentences (capital letter, full stop, question mark). Tum bolumleri yapin; cumlelerde noktalama onemlidir.</div>
+<div id="parts"></div>
+<div class="card"><button class="go" id="check">Check my answers</button><div class="score" id="score"></div></div>
+</div>
+
+<div id="tea" class="pane"><div id="teacher"></div></div>
+</div>
+
+<script>
+const KEYS={
+ gap:[["doesn't like","does not like"],["sells"],["doesn't work","does not work"],["does your boss visit"],
+  ["there is","there's"],["any"],["opposite"],["how many"],
+  ["visited"],["didn't have","did not have"],["is going to rain"],["will answer","'ll answer","will answer it"],
+  ["should"],["must"],["has to"],["mustn't","must not"]],
+ mcq:[0,0,1, 1,1,0, 1,0,1, 0,0,0],
+ rd:[1,0,1,1,1,1,0,0,2,1],
+ err:[["She doesn't work on Sundays.","She does not work on Sundays."],["He goes to the hospital every day."],["There are five boxes in the car."],["How much stock do we have?"],
+  ["I went to the conference last week."],["Did you call the doctor yesterday?"],["You must wear a mask."],["She can go to the meeting."]],
+ ord:[["I check my emails every morning.","Every morning I check my emails."],["The pharmacy is opposite the hospital."],["I'm going to present the product tomorrow.","Tomorrow I'm going to present the product.","I am going to present the product tomorrow."],["I have to send a report every Friday.","Every Friday I have to send a report."]]
+};
+const HINTS={gap:["Negative: doesn't + base verb","he/she/it + -s","Negative: he/she/it + doesn't","Question: Do/Does + subject + verb","Singular noun -> there is","Negative -> some becomes any","Across the street from","Countable plural","Regular past: verb + -ed","Past negative: didn't + base verb","Prediction from evidence: going to","Decision made now: will","Advice","Strict rule","Obligation from the job: he/she/it form","Strong prohibition"],
+ err:["Check do/does in negatives","Third person -s","Plural noun -> are","Uncountable stock -> much","Irregular past of go","After did use base verb","No 'to' after must","No -s after can"],
+ ord:["Start with I","Start with The pharmacy","Use I'm going to + verb","Use have to + verb"]};
+const P={
+ gap:{t:"Part 1 - Fill in the Gaps",d:"Write the correct form (present simple, there is/are, past, future or modal).",q:[
+ "My manager ____ (not / like) late reports.","Our company ____ (sell) medical equipment to clinics.","She ____ (not / work) on Saturdays.","____ clients every week? (your boss / visit)",
+ "____ a new pharmacy next to the hospital.","We don't have ____ samples left. (some / any)","The pharmacy is ____ the hospital, on the other side of the street.","____ boxes are there in the storage room? (how much / how many)",
+ "I ____ (visit) three clients yesterday.","We ____ (not / have) a meeting last Friday.","Look at the dark sky! It ____ (rain). (going to)","A: The phone is ringing. B: I ____ (answer) it. (will)",
+ "You ____ take this medicine after meals. (advice)","Patients ____ read the leaflet first. (strict rule)","She ____ visit five hospitals every week. (job obligation)","You ____ forget the consent form! (strong prohibition)"]},
+ mcq:{t:"Part 2 - Choose the Correct Answer",d:"Choose a, b or c.",q:[
+ ["He ___ to the office by bus.","goes","go","going"],["___ you work on Sundays?","Do","Does","Are"],["She ___ meat.","eats not","doesn't eat","don't eat"],
+ ["How ___ stock do we have this month?","many","much","any"],["There ___ two new products on the shelf.","is","are","be"],["The clinic is ___ the bank and the supermarket.","between","opposite","behind of"],
+ ["Yesterday I ___ three doctors.","see","saw","seen"],["___ you call the client last week?","Did","Do","Will"],["I have tickets for Ankara. We ___ next week.","will fly","are going to fly","flew"],
+ ["You look tired. You ___ rest.","should","mustn't","has to"],["He ___ come today. He is sick.","can't","mustn't","shouldn't"],["___ I take a sample to the doctor?","Can","Must","Has"]]},
+ err:{t:"Part 3 - Find and Correct the Mistake",d:"Each sentence has one mistake. Write the whole sentence correctly.",q:[
+ "She don't work on Sundays.","He go to the hospital every day.","There is five boxes in the car.","How many stock do we have?","I go to the conference last week.","Did you called the doctor yesterday?","You must to wear a mask.","She can goes to the meeting."]},
+ ord:{t:"Part 4 - Word Order",d:"Put the words in the correct order to make a sentence.",q:[
+ "every / I / emails / check / morning / my","opposite / is / pharmacy / the / hospital / the / The","going / present / to / the / I'm / product / tomorrow","have / report / to / Friday / send / I / every / a"]},
+ rd:{t:"Part 5 - Reading",d:"Read the text. Then choose a, b or c.",q:[
+ ["Selim works ...","every day","from Monday to Friday","on Sundays"],
+ ["What does he do every morning?","He checks his emails.","He visits Ankara.","He calls the doctor."],
+ ["How many clients does he have to visit every week?","three","five","ten"],
+ ["Last Tuesday there were some samples in Selim's car.","True","False","Not stated"],
+ ["Where is the new clinic?","next to the pharmacy","between a bank and a pharmacy","near the train station"],
+ ["The doctor was angry with Selim.","True","False","Not stated"],
+ ["What did Selim's manager say?","She will send the samples today.","She is going to visit the clinic.","She can't help him."],
+ ["The conference is in Ankara next week.","True","False","Not stated"],
+ ["The new machine is very expensive.","True","False","Not stated"],
+ ["Why will the machine help doctors?","It is cheap.","It can measure blood pressure in one minute.","It must be used at night."]]}
+};
+const PASS=`<b>A Busy Week for Selim</b><br>Selim is a sales representative for a medical equipment company in Izmir. He works from Monday to Friday and he doesn't work at weekends. Every morning he checks his emails and then he drives to hospitals and clinics. He has to visit five clients every week.<br><br>Last Tuesday was a difficult day. Selim visited a new clinic, but there weren't any samples in his car. He forgot the box at the office! The clinic is between a bank and a pharmacy, opposite a small park. The doctor was friendly and said, "You should bring the samples tomorrow." Selim called his manager and she said, "I'll send them today."<br><br>Next week Selim is going to present a new blood pressure machine at a big conference in Ankara. He thinks the machine will help many doctors because it can measure blood pressure in one minute. He must not forget the machine this time! He is going to check his bag twice before he leaves.`;
+const WR=["Present Simple: Write 4 sentences about your job and daily routine.","There is/are: Describe the place where you work (what is there, where things are).","Past Simple + Future: Write 2 sentences about last week and 2 about next week.","Modals: Write 4 pieces of advice or rules for a new colleague."];
+const n=s=>s.toLowerCase().replace(/[\u2018\u2019]/g,"'").replace(/\s+/g," ").trim();
+const nl=s=>n(s).replace(/[.?!,]+$/,"");
+const L=["a","b","c"];
+function build(){
+ let h="";
+ for(const k of ["gap","mcq","err","ord","rd"]){const p=P[k];
+  h+=`<div class="card"><h2>${p.t}<span class="tag">${p.q.length} pts</span></h2><div class="sub">${p.d}</div>${k=="rd"?'<div class="gram" style="margin:8px 0">'+PASS+'</div>':""}`;
+  p.q.forEach((q,i)=>{
+   if(k=="mcq"||k=="rd"){h+=`<div class="q" id="${k}${i}"><b>${i+1}.</b> ${q[0]}<br>`+[1,2,3].map((o,j)=>`<label class="opt"><input type="radio" name="${k}${i}" value="${j}"> ${L[j]}) ${q[o]}</label>`).join("")+`</div>`}
+   else h+=`<div class="q" id="${k}${i}"><b>${i+1}.</b> ${q}<br><input type="text" id="in_${k}${i}" autocomplete="off" autocapitalize="off" spellcheck="false"><div class="hint"></div></div>`});
+  h+="</div>"}
+ h+=`<div class="card"><h2>Part 6 - Writing<span class="tag">10 pts - teacher marks</span></h2><div class="sub">Write 4 sentences for each task. Your teacher will mark this part.</div>`+WR.map((w,i)=>`<div class="q"><b>${i+1}.</b> ${w}<br><textarea></textarea></div>`).join("")+"</div>";
+ document.getElementById("parts").innerHTML=h}
+function check(){
+ let s=0;const res={};
+ for(const k of ["gap","err","ord"]){res[k]=0;P[k].q.forEach((q,i)=>{
+  const el=document.getElementById("in_"+k+i),box=el.parentNode,v=el.value;
+  const f=k=="gap"?nl:n;const ok=KEYS[k][i].some(a=>f(a)==f(v));
+  box.classList.toggle("good",ok);box.classList.toggle("wrong",!ok);
+  box.querySelector(".hint").textContent=ok?"":"Hint: "+HINTS[k][i];
+  if(ok){res[k]++}})}
+ for(const k of ["mcq","rd"]){res[k]=0;P[k].q.forEach((q,i)=>{const c=document.querySelector(`input[name=${k}${i}]:checked`),box=document.getElementById(k+i);
+  const ok=c&&+c.value==KEYS[k][i];box.classList.toggle("good",!!ok);box.classList.toggle("wrong",!ok);if(ok)res[k]++})}
+ s=res.gap+res.mcq+res.err+res.ord+res.rd;
+ document.getElementById("score").textContent=`Parts 1-5: ${s} / 50  (Gaps ${res.gap}/16, Choose ${res.mcq}/12, Errors ${res.err}/8, Order ${res.ord}/4, Reading ${res.rd}/10). Writing is marked by your teacher.`}
+function teacher(){
+ const row=(k)=>P[k].q.map((q,i)=>{let a=k=="mcq"||k=="rd"?L[KEYS[k][i]]+") "+q[KEYS[k][i]+1]:KEYS[k][i].join("  /  ");return `<tr><td>${i+1}</td><td>${k=="mcq"||k=="rd"?q[0]:q}</td><td><b>${a}</b></td></tr>`}).join("");
+ const tb=(k,t)=>`<div class="card"><h2>${t}</h2><div class="scroll"><table><tr><th>#</th><th>Question</th><th>Answer(s)</th></tr>${row(k)}</table></div></div>`;
+ document.getElementById("teacher").innerHTML=
+ `<div class="card"><h2>Scoring</h2><div class="scroll"><table><tr><th>Part</th><th>Skill</th><th>Points</th></tr>
+ <tr><td>1</td><td>Fill in the gaps (4 per lesson)</td><td>16</td></tr><tr><td>2</td><td>Multiple choice (3 per lesson)</td><td>12</td></tr><tr><td>3</td><td>Error correction (2 per lesson)</td><td>8</td></tr><tr><td>4</td><td>Word order (1 per lesson)</td><td>4</td></tr><tr><td>5</td><td>Reading (10 questions)</td><td>10</td></tr><tr><td>6</td><td>Writing (teacher marked)</td><td>10</td></tr><tr><td><b>Total</b></td><td></td><td><b>60</b></td></tr></table></div>
+ <p class="sub">Suggested bands: 54-60 secure / 42-53 good, revise small points / 30-41 revise the weak lesson / below 30 re-teach. Items are ordered by lesson: L1 = Q1-4 (gaps), 1-3 (choose), 1-2 (errors); L2 next, then L3, then L4.</p></div>
+ <div class="card"><h2>Teacher's Tips</h2><ul>
+ <li><b>L1 Present Simple:</b> Watch for the missing -s/-es and "don't" with he/she/it. Turkish has no auxiliary verb, so Do/Does questions are often skipped.</li>
+ <li><b>L2 There is/are:</b> Zafer may use "there is" for plurals (Turkish "var" does not change). Remind: much = uncountable (stock), many = countable (boxes). Check opposite vs between.</li>
+ <li><b>L3 Past vs Future:</b> After did/didn't the verb goes back to base form. Going to = plan or evidence; will = decision now or prediction. Irregular verbs (go, see, have) are his known weak point, so note them.</li>
+ <li><b>L4 Modals:</b> No "to" after should/must/can and no -s after them. Must = rule, have to = outside obligation (has to for he/she). Mustn't = forbidden, not "not necessary".</li>
+ <li>Let him do Parts 1-4 first (about 25 min), then Reading and Writing (about 25 min). The reading text recycles all four lessons, so it also shows whether he can recognise the grammar in context. Do not allow notes or his lesson files.</li>
+ <li>Tick-box answers use hints on wrong answers; if you want a closed-book test, ignore the hints and mark on paper from the keys below.</li>
+ <li>Spoken follow-up (optional): "What do you do every day?" / "Where is the nearest pharmacy?" / "What did you do last weekend?" / "What are you going to do next week?" / "What should a new colleague do on the first day?"</li></ul></div>
+ `+tb("gap","Part 1 - Answers (accepted forms shown)")+tb("mcq","Part 2 - Answers")+tb("err","Part 3 - Answers (full corrected sentence)")+tb("ord","Part 4 - Answers (accepted orders shown)")+tb("rd","Part 5 - Reading Answers (Not stated = the text does not say)")+
+ `<div class="card"><h2>Part 6 - Writing marking guide (10 pts)</h2><div class="scroll"><table><tr><th>Task</th><th>Look for</th><th>Pts</th></tr>
+ <tr><td>1 Present Simple</td><td>he/she/I forms correct, -s/-es, negative with do/does</td><td>2.5</td></tr>
+ <tr><td>2 There is/are</td><td>is/are agreement, some/any, at least 2 prepositions of place</td><td>2.5</td></tr>
+ <tr><td>3 Past + Future</td><td>2 correct past forms, 2 correct going to/will sentences, time words</td><td>2.5</td></tr>
+ <tr><td>4 Modals</td><td>should/must/have to used correctly, base verb after modal</td><td>2.5</td></tr></table></div>
+ <p class="sub">Give 1 point less for a task with fewer than 4 sentences. Spelling slips that do not change meaning should not lose points.</p></div>`}
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelectorAll(".tab,.pane").forEach(e=>e.classList.remove("on"));b.classList.add("on");document.getElementById(b.dataset.p).classList.add("on")});
+document.getElementById("check").onclick=check;
+build();teacher();
+</script>
+</body>
+</html>
